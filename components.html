@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ridge.css</title>
+    <link rel="stylesheet" href="ridge.css" />
+    <script src="alpine.js" defer></script>
+  </head>
+  <body>
+    <vstack x-bind:stretch="menu" spacing="s" x-data="{ menu: false }">
+      <hstack class="md lg">
+        <a href="index.html">
+          <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
+        </a>
+        <b>ridge.css</b>
+        <spacer></spacer>
+        <hstack spacing="m">
+          <a href="components.html">Components</a>
+          <a href="https://github.com/swlkr/ridgecss">Github</a>
+          <a href="index.html">
+            <button>Download (23kb)</button>
+          </a>
+        </hstack>
+      </hstack>
+
+      <vstack stretch>
+        <hstack class="sm">
+          <a href="index.html">
+            <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
+          </a>
+          <b>ridge.css</b>
+          <spacer></spacer>
+          <a href="" @click.prevent="menu = true" x-show="!menu">
+            <svg class="bi bi-list" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+            </svg>
+          </a>
+          <a href="" @click.prevent="menu = false" x-show="menu">
+            <svg class="bi bi-x" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+              <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+            </svg>
+          </a>
+        </hstack>
+
+        <vstack spacing="m" x-show="menu" stretch align-x="center" align-y="center">
+          <a href="components.html">Components</a>
+          <a href="https://github.com/swlkr/ridgecss">Github</a>
+          <a href="index.html">
+            <button>Download (23kb)</button>
+          </a>
+        </vstack>
+      </vstack>
+
+      <vstack x-show="!menu" spacing=l>
+        <vstack>
+          <h1>ridge.css components</h1>
+          <p>Make web apps even faster with pre-built components</p>
+        </vstack>
+
+        <vstack spacing=s x-data="{ preview: true }">
+          <vstack spacing=xs>
+            <h2>Description List Card</h2>
+            <hstack spacing="xs">
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
+              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+            </hstack>
+          </vstack>
+
+          <div x-show="preview" x-ref="demo">
+<aside>
+  <dl>
+    <vstack>
+      <vstack class="pa3">
+        <h3>A demo description list component</h3>
+        <p>A smaller more in-depth description of this component</p>
+      </vstack>
+
+      <hr />
+
+      <vstack spacing=m class="pa3">
+        <hstack responsive spacing=m>
+          <vstack>
+            <dt>Description title</dt>
+            <dd>Description</dd>
+          </vstack>
+
+          <vstack>
+            <dt>Name</dt>
+            <dd>Sean Walker</dd>
+          </vstack>
+        </hstack>
+
+        <hstack responsive spacing=m>
+          <vstack>
+            <dt>Email</dt>
+            <dd>sean@example.com</dd>
+          </vstack>
+
+          <vstack>
+            <dt>Project</dt>
+            <dd>ridge.css</dd>
+          </vstack>
+        </hstack>
+
+        <vstack>
+          <dt>About</dt>
+          <dd>ridge.css helps you make fast web apps fast with just plain html</dd>
+        </vstack>
+      </vstack>
+    </vstack>
+  </dl>
+</aside>
+          </div>
+
+          <div x-show="!preview">
+            <pre>
+              <code x-text="$refs.demo.innerHTML">
+              </code>
+            </pre>
+          </div>
+        </vstack>
+
+        <vstack stretch spacing=s x-data="{ preview: true }">
+          <vstack spacing=s>
+            <h2>Dashboard</h2>
+            <hstack spacing=xs>
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
+              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+            </hstack>
+          </vstack>
+
+          <div style="height: 400px" x-show="preview" x-ref="demo">
+<vstack spacing=xs stretch x-data="{ active: 'dashboard', menu: false, profile: false }">
+  <hstack spacing=s class="bb b--background-alt bw1 md lg">
+    <hstack spacing=xs class="ph2">
+      <svg class="bi bi-exclude" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v9A1.5 1.5 0 0 0 1.5 12H4v2.5A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4H12V1.5A1.5 1.5 0 0 0 10.5 0h-9zM12 4H5.5A1.5 1.5 0 0 0 4 5.5V12h6.5a1.5 1.5 0 0 0 1.5-1.5V4z"/>
+      </svg>
+      <h2 class="">logo</h2>
+    </hstack>
+
+    <a href @click.prevent="active = 'dashboard'" class="bb pv2 bw1" :class="{ 'b--links': active === 'dashboard' }">Dashboard</a>
+    <a href @click.prevent="active = 'team'" class="bb pv2 bw1" :class="{ 'b--links': active === 'team' }">Team</a>
+    <a href @click.prevent="active = 'tags'" class="bb pv2 bw1" :class="{ 'b--links': active === 'tags' }">Tags</a>
+    <a href @click.prevent="active = 'calendar'" class="bb pv2 bw1" :class="{ 'b--links': active === 'calendar' }">Calendar</a>
+    <spacer></spacer>
+    <svg class="bi bi-bell" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z"/>
+      <path fill-rule="evenodd" d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+    </svg>
+    <a href @click.prevent="profile = !profile" @click.away="profile = false">
+      <img src="profile.png" class="w2 br-100" />
+    </a>
+  </hstack>
+
+  <vstack stretch>
+    <hstack class="sm">
+      <hstack spacing=xs class="ph2">
+        <svg class="bi bi-exclude" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v9A1.5 1.5 0 0 0 1.5 12H4v2.5A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4H12V1.5A1.5 1.5 0 0 0 10.5 0h-9zM12 4H5.5A1.5 1.5 0 0 0 4 5.5V12h6.5a1.5 1.5 0 0 0 1.5-1.5V4z"/>
+        </svg>
+        <h2 class="">logo</h2>
+      </hstack>
+      <spacer></spacer>
+      <a href="" @click.prevent="menu = true" x-show="!menu">
+        <svg class="bi bi-list" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+      <a href="" @click.prevent="menu = false" x-show="menu">
+        <svg class="bi bi-x" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+          <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </hstack>
+
+    <vstack spacing="m" x-show="menu" stretch align-x="center" align-y="center">
+      <a href @click.prevent="active = 'dashboard'" class="bb pv2 bw1" :class="{ 'b--links': active === 'dashboard' }">Dashboard</a>
+      <a href @click.prevent="active = 'team'" class="bb pv2 bw1" :class="{ 'b--links': active === 'team' }">Team</a>
+      <a href @click.prevent="active = 'tags'" class="bb pv2 bw1" :class="{ 'b--links': active === 'tags' }">Tags</a>
+      <a href @click.prevent="active = 'calendar'" class="bb pv2 bw1" :class="{ 'b--links': active === 'calendar' }">Calendar</a>
+    </vstack>
+
+  <div class="relative">
+    <aside x-show="profile" class="absolute right-0 br2 w4">
+      <vstack>
+        <div class="bb b--border pv1 ph2">
+          <a href>Profile</a>
+        </div>
+        <div class="bb b--border pv1 ph2">
+          <a href>Settings</a>
+        </div>
+        <div class="pv1 ph2">
+          <a href>Log out</a>
+        </div>
+      </vstack>
+    </aside>
+  </div>
+
+  <vstack x-show="!menu" stretch align-x="center" align-y="center" class="bg-background-alt b--background br3 b--dashed">
+    <span style="color: var(--text-bright)">Your dashboard goes here</span>
+  </vstack>
+</vstack>
+          </div>
+
+          <div x-show="!preview">
+            <pre>
+              <code x-text="$refs.demo.innerHTML">
+              </code>
+            </pre>
+          </div>
+        </vstack>
+
+        <vstack stretch spacing=s x-data="{ preview: true }">
+          <vstack spacing=s>
+            <h2>Dashboard w/ Sidebar</h2>
+            <hstack spacing=xs>
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
+              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+            </hstack>
+          </vstack>
+
+          <div style="height: 600px" x-show="preview" x-ref="demo">
+<hstack x-data="{ active: 'Dashboard', menu: false }" class="h-100 relative" >
+  <vstack stretch spacing=xs class="bg-inverse pa2 w-third color-inverse md lg">
+    <hstack spacing=xs class="ph2">
+      <svg class="bi bi-exclude" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v9A1.5 1.5 0 0 0 1.5 12H4v2.5A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4H12V1.5A1.5 1.5 0 0 0 10.5 0h-9zM12 4H5.5A1.5 1.5 0 0 0 4 5.5V12h6.5a1.5 1.5 0 0 0 1.5-1.5V4z"/>
+      </svg>
+      <h2 class="color-inverse">logo</h2>
+    </hstack>
+    <a href @click.prevent="active = 'Dashboard'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Dashboard' }">Dashboard</a>
+    <a href @click.prevent="active = 'Team'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Team' }">Team</a>
+    <a href @click.prevent="active = 'Tags'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Tags' }">Tags</a>
+    <a href @click.prevent="active = 'Calendar'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Calendar' }">Calendar</a>
+    <spacer></spacer>
+    <hstack spacing=s class="pa2">
+      <img src="profile.png" class="w2 br-100" />
+      <vstack>
+        Sean Walker
+        <a href>View Profile</a>
+      </vstack>
+    </hstack>
+  </vstack>
+
+  <vstack x-show="!menu" stretch class="w-100 bg-background-alt b--background pa3">
+    <vstack spacing=xs>
+      <h2 x-text="active">Dashboard</h2>
+      <vstack class="br3 b--dashed b--background bw2" stretch align-x="center" align-y="center">Your dashboard goes here</vstack>
+    </vstack>
+  </vstack>
+
+  <vstack x-show="menu" stretch spacing=xs class="bg-inverse pa2 color-inverse sm">
+    <hstack spacing=xs class="ph2">
+      <svg class="bi bi-exclude" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v9A1.5 1.5 0 0 0 1.5 12H4v2.5A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4H12V1.5A1.5 1.5 0 0 0 10.5 0h-9zM12 4H5.5A1.5 1.5 0 0 0 4 5.5V12h6.5a1.5 1.5 0 0 0 1.5-1.5V4z"/>
+      </svg>
+      <h2 class="color-inverse">logo</h2>
+    </hstack>
+    <a href @click.prevent="active = 'Dashboard'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Dashboard' }">Dashboard</a>
+    <a href @click.prevent="active = 'Team'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Team' }">Team</a>
+    <a href @click.prevent="active = 'Tags'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Tags' }">Tags</a>
+    <a href @click.prevent="active = 'Calendar'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Calendar' }">Calendar</a>
+    <spacer></spacer>
+    <hstack spacing=s class="pa2">
+      <img src="profile.png" class="w2 br-100" />
+      <vstack>
+        Sean Walker
+        <a href>View Profile</a>
+      </vstack>
+    </hstack>
+  </vstack>
+
+  <div class="absolute bottom-1 right-1 sm">
+    <a href="" @click.prevent="menu = true" x-show="!menu">
+      <svg class="bi bi-list" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+      </svg>
+    </a>
+    <a href="" @click.prevent="menu = false" x-show="menu">
+      <svg class="bi bi-x" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+      </svg>
+    </a>
+  </div>
+</hstack>
+          </div>
+
+          <div x-show="!preview">
+            <pre>
+              <code x-text="$refs.demo.innerHTML">
+              </code>
+            </pre>
+          </div>
+        </vstack>
+      </vstack>
+
+      <spacer></spacer>
+    </vstack>
+  </body>
+</html>
