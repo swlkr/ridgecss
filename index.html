@@ -7,9 +7,9 @@
     <script src="alpine.js" defer></script>
   </head>
   <body>
-    <vstack x-bind:stretch="menu" spacing="l" x-data="{ menu: false }">
-      <hstack md lg>
-        <a href="/">
+    <vstack x-bind:stretch="menu" spacing="m" x-data="{ menu: false }">
+      <hstack class="md lg">
+        <a href="index.html">
           <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
         </a>
         <b>ridge.css</b>
@@ -17,15 +17,15 @@
         <hstack spacing="m">
           <a href="components.html">Components</a>
           <a href="https://github.com/swlkr/ridgecss">Github</a>
-          <a href="/">
-            <button>Download (12kb)</button>
+          <a href="index.html">
+            <button>Download (23kb)</button>
           </a>
         </hstack>
       </hstack>
 
       <vstack stretch>
-        <hstack sm>
-          <a href="/">
+        <hstack class="sm">
+          <a href="index.html">
             <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
           </a>
           <b>ridge.css</b>
@@ -46,17 +46,17 @@
         <vstack spacing="m" x-show="menu" stretch align-x="center" align-y="center">
           <a href="components.html">Components</a>
           <a href="https://github.com/swlkr/ridgecss">Github</a>
-          <a href="/">
-            <button>Download (12kb)</button>
+          <a href="index.html">
+            <button>Download (23kb)</button>
           </a>
         </vstack>
       </vstack>
 
-      <vstack x-show="!menu" spacing=xl>
-        <vstack align-x="center">
+      <vstack x-show="!menu" spacing=l>
+        <vstack align-x="center" class="p1">
           <h1>A maximalist framework for making web apps fast</h1>
           <p>
-            Classless css, <a href="https://github.com/almonk/pylon">swift ui inspired</a> html elements and <a href="https://github.com/alpinejs/alpine">alpine.js</a> markup
+            Classless css mixed with a dash of atomic css, <a href="https://github.com/almonk/pylon">swift ui inspired</a> helpers and <a href="https://github.com/alpinejs/alpine">alpine.js</a> markup
           </p>
         </vstack>
 
@@ -91,7 +91,7 @@
           </blockquote>
         </vstack>
 
-        <vstack>
+        <vstack spacing=s>
           <h2>Lists</h2>
           <ul>
             <li>Unordered list</li>
@@ -104,35 +104,9 @@
           </ol>
 
           <dl>
-            <vstack spacing=l>
-              <hstack>
-                <vstack>
-                  <dt>Description title</dt>
-                  <dd>Description</dd>
-                </vstack>
-
-                <vstack>
-                  <dt>Name</dt>
-                  <dd>Sean Walker</dd>
-                </vstack>
-              </hstack>
-
-              <hstack>
-                <vstack>
-                  <dt>Email</dt>
-                  <dd>sean@example.com</dd>
-                </vstack>
-
-                <vstack>
-                  <dt>Project</dt>
-                  <dd>ridge.css</dd>
-                </vstack>
-              </hstack>
-
-              <vstack>
-                <dt>About</dt>
-                <dd>ridge.css helps you make fast web apps fast with just plain html</dd>
-              </vstack>
+            <vstack>
+              <dt>Description title</dt>
+              <dd>Description</dd>
             </vstack>
           </dl>
         </vstack>
@@ -206,30 +180,30 @@
           </table>
         </vstack>
 
-        <vstack spacing="l">
+        <vstack spacing="s">
           <h2>Cards</h2>
-          <hstack responsive spacing="l">
-            <aside>
-              <vstack stretch p=m>
+          <hstack responsive spacing="s">
+            <aside stretch>
+              <vstack class="pa4">
                 <h3>I'm a card!</h3>
               </vstack>
             </aside>
 
-            <aside>
-              <vstack stretch p=m>
+            <aside stretch>
+              <vstack class="pa4">
                 <h3>I'm a card!</h3>
               </vstack>
             </aside>
 
-            <aside>
-              <vstack stretch p=m>
+            <aside stretch>
+              <vstack class="pa4">
                 <h3>I'm a card!</h3>
               </vstack>
             </aside>
           </hstack>
 
           <aside>
-            <vstack stretch p=m>
+            <vstack stretch class="pa4">
               <h3>I'm a card!</h3>
             </vstack>
           </aside>
