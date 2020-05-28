@@ -150,6 +150,10 @@ vstack[stretch] {
     display: block;
   }
 
+  hstack[responsive]>* {
+    margin-right: 0;
+  }
+
   hstack[responsive][spacing="xxs"]>* {
     margin-bottom: 0.25rem;
   }
@@ -355,6 +359,12 @@ select {
   border: none;
   border-radius: 6px;
   outline: none;
+}
+
+button,
+input[type="submit"] {
+  color: var(--text-inverse);
+  background-color: var(--links);
 }
 
 input:not([type='checkbox']):not([type='radio']),
@@ -683,6 +693,12 @@ aside {
   background: var(--background-body);
   border-radius: 10px;
   border: 1px solid var(--border);
+}
+
+section {
+  border-radius: 4px;
+  background: var(--background-body);
+  box-shadow: 0px 1px 4px var(--background-alt);
 }
 
 ul, ol {

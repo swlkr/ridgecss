@@ -60,6 +60,142 @@
 
         <vstack spacing=s x-data="{ preview: true }">
           <vstack spacing=xs>
+            <h2>Alerts</h2>
+            <hstack spacing="xs">
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
+              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+            </hstack>
+          </vstack>
+
+          <div x-show="preview" x-ref="demo">
+<vstack spacing=s>
+  <div class="pa3 bg-background text-bright br3">
+    A simple well that uses the default theme colors
+  </div>
+  <div class="pa3 bg-links text-bright br3">
+    A simple well that uses the default theme colors
+  </div>
+  <div class="pa3 bg-inverse background br3" x-show="!closed" x-data="{closed: false}">
+    <hstack align-y="center">
+      A simple well that can be dismissed
+      <spacer></spacer>
+      <a class="background" href @click.prevent="closed = true">
+        <svg class="bi bi-x" width="1.3em" height="1.3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+          <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+        </svg>
+      </a>
+    </hstack>
+  </div>
+</vstack>
+          </div>
+
+          <div x-show="!preview">
+            <pre>
+              <code x-text="$refs.demo.innerHTML">
+              </code>
+            </pre>
+          </div>
+        </vstack>
+
+        <vstack spacing=s x-data="{ preview: true }">
+          <vstack spacing=xs>
+            <h2>Stats</h2>
+            <hstack spacing="xs">
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
+              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+            </hstack>
+          </vstack>
+
+          <div x-show="preview" x-ref="demo">
+<hstack responsive spacing=s class="bg-background-alt pa4 br2">
+  <section stretch class="pa4">
+    <vstack>
+      <small>Visitors</small>
+      <h2>1,337</h2>
+    </vstack>
+  </section>
+  <section stretch class="pa4">
+    <vstack>
+      <small>Bounce Rate</small>
+      <h2>3%</h2>
+    </vstack>
+  </section>
+  <section stretch class="pa4">
+    <vstack>
+      <small>Conversion Rate</small>
+      <h2>23.57%</h2>
+    </vstack>
+  </section>
+</hstack>
+         </div>
+
+          <div x-show="!preview">
+            <pre>
+              <code x-text="$refs.demo.innerHTML">
+              </code>
+            </pre>
+          </div>
+        </vstack>
+
+        <!-- Card Examples  -->
+
+        <vstack spacing=s x-data="{ preview: true }">
+          <vstack spacing=xs>
+            <h2>Cards</h2>
+            <hstack spacing="xs">
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
+              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+            </hstack>
+          </vstack>
+
+          <div x-show="preview" x-ref="demo">
+<hstack responsive spacing=s class="bg-background-alt pa4 br2">
+  <section stretch class="br2">
+    <vstack>
+      <svg class="br2 br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+        <title>Placeholder</title>
+        <rect width="100%" height="100%" fill="#868e96"></rect>
+        <text x="30%" y="50%" fill="#dee2e6" dy=".3em">Image goes here</text>
+      </svg>
+      <p class="pa4">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
+    </vstack>
+  </section>
+
+  <section stretch class="br2">
+    <vstack>
+      <svg class="br2 br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+        <title>Placeholder</title>
+        <rect width="100%" height="100%" fill="#868e96"></rect>
+        <text x="30%" y="50%" fill="#dee2e6" dy=".3em">Image goes here</text>
+      </svg>
+      <p class="pa4">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
+    </vstack>
+  </section>
+
+  <section stretch class="br2">
+    <vstack>
+      <svg class="br2 br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+        <title>Placeholder</title>
+        <rect width="100%" height="100%" fill="#868e96"></rect>
+        <text x="30%" y="50%" fill="#dee2e6" dy=".3em">Image goes here</text>
+      </svg>
+      <p class="pa4">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
+    </vstack>
+  </section>
+</hstack>
+         </div>
+
+          <div x-show="!preview">
+            <pre>
+              <code x-text="$refs.demo.innerHTML">
+              </code>
+            </pre>
+          </div>
+        </vstack>
+
+        <vstack spacing=s x-data="{ preview: true }">
+          <vstack spacing=xs>
             <h2>Description List Card</h2>
             <hstack spacing="xs">
               <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
@@ -111,6 +247,53 @@
     </vstack>
   </dl>
 </aside>
+          </div>
+
+          <div x-show="!preview">
+            <pre>
+              <code x-text="$refs.demo.innerHTML">
+              </code>
+            </pre>
+          </div>
+        </vstack>
+
+        <vstack spacing=s x-data="{ preview: true }">
+          <vstack spacing=s>
+            <h2>Dashboard Section</h2>
+            <hstack spacing="xs">
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
+              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+            </hstack>
+          </vstack>
+
+          <div x-show="preview" x-ref="demo">
+<vstack spacing=xs>
+  <h2>Dashboard Section Title</h2>
+  <aside class="pa3">
+    <vstack>
+      <form>
+        <vstack spacing=s>
+          <vstack>
+            <label for="">Name</label>
+            <input type="text" name="" value="">
+          </vstack>
+
+          <vstack>
+            <label for="">Email</label>
+            <input type="email" name="" value="">
+          </vstack>
+
+          <vstack>
+            <label for="">Description</label>
+            <textarea name="description" rows="8"></textarea>
+          </vstack>
+
+          <button type="button" name="button">Save</button>
+        </vstack>
+      </form>
+    </vstack>
+  </aside>
+</vstack>
           </div>
 
           <div x-show="!preview">
@@ -275,8 +458,8 @@
 
   <div class="absolute bottom-1 right-1 sm">
     <a href="" @click.prevent="menu = true" x-show="!menu">
-      <svg class="bi bi-list" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+      <svg class="bi bi-arrow-up-left-circle-fill" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM9.5 5h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V6.707l4.146 4.147a.5.5 0 0 0 .708-.708L6.707 6H9.5a.5.5 0 0 0 0-1z"/>
       </svg>
     </a>
     <a href="" @click.prevent="menu = false" x-show="menu">
