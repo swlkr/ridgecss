@@ -4,15 +4,21 @@
     <meta charset="utf-8">
     <title>ridge.css</title>
     <link rel="stylesheet" href="ridge.css" />
+    <link rel="stylesheet" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)" href="atom-one-light.css">
+    <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="atom-one-dark.css">
     <script src="alpine.js" defer></script>
+    <script src="highlight.pack.js"></script>
   </head>
   <body>
+    <main>
     <vstack x-bind:stretch="menu" spacing="s" x-data="{ menu: false }">
       <hstack class="md lg">
         <a href="index.html">
-          <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
+          <hstack>
+            <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
+            <b>ridge.css</b>
+          </hstack>
         </a>
-        <b>ridge.css</b>
         <spacer></spacer>
         <hstack spacing="m">
           <a href="components.html">Components</a>
@@ -26,9 +32,11 @@
       <vstack stretch>
         <hstack class="sm">
           <a href="index.html">
-            <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
+            <hstack>
+              <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
+              <b>ridge.css</b>
+            </hstack>
           </a>
-          <b>ridge.css</b>
           <spacer></spacer>
           <a href="" @click.prevent="menu = true" x-show="!menu">
             <svg class="bi bi-list" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -63,7 +71,7 @@
             <h2>Alerts</h2>
             <hstack spacing="xs">
               <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -92,7 +100,7 @@
 
           <div x-show="!preview">
             <pre>
-              <code x-text="$refs.demo.innerHTML">
+              <code class="html" x-text="$refs.demo.innerHTML">
               </code>
             </pre>
           </div>
@@ -103,36 +111,36 @@
             <h2>Stats</h2>
             <hstack spacing="xs">
               <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
             </hstack>
           </vstack>
 
           <div x-show="preview" x-ref="demo">
 <hstack responsive spacing=s class="bg-background-alt pa4 br2">
-  <section stretch class="pa4">
+  <aside stretch class="pa4">
     <vstack>
       <small>Visitors</small>
       <h2>1,337</h2>
     </vstack>
-  </section>
-  <section stretch class="pa4">
+  </aside>
+  <aside stretch class="pa4">
     <vstack>
       <small>Bounce Rate</small>
       <h2>3%</h2>
     </vstack>
-  </section>
-  <section stretch class="pa4">
+  </aside>
+  <aside stretch class="pa4">
     <vstack>
       <small>Conversion Rate</small>
       <h2>23.57%</h2>
     </vstack>
-  </section>
+  </aside>
 </hstack>
          </div>
 
           <div x-show="!preview">
             <pre>
-              <code x-text="$refs.demo.innerHTML">
+              <code class="html" x-text="$refs.demo.innerHTML">
               </code>
             </pre>
           </div>
@@ -145,13 +153,13 @@
             <h2>Cards</h2>
             <hstack spacing="xs">
               <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
             </hstack>
           </vstack>
 
           <div x-show="preview" x-ref="demo">
 <hstack responsive spacing=s class="bg-background-alt pa4 br2">
-  <section stretch class="br2">
+  <aside stretch class="br2 bn">
     <vstack>
       <svg class="br2 br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
         <title>Placeholder</title>
@@ -160,9 +168,9 @@
       </svg>
       <p class="pa4">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
     </vstack>
-  </section>
+  </aside>
 
-  <section stretch class="br2">
+  <aside stretch class="br2 bn">
     <vstack>
       <svg class="br2 br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
         <title>Placeholder</title>
@@ -171,9 +179,9 @@
       </svg>
       <p class="pa4">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
     </vstack>
-  </section>
+  </aside>
 
-  <section stretch class="br2">
+  <aside stretch class="br2 bn">
     <vstack>
       <svg class="br2 br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
         <title>Placeholder</title>
@@ -182,13 +190,13 @@
       </svg>
       <p class="pa4">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
     </vstack>
-  </section>
+  </aside>
 </hstack>
          </div>
 
           <div x-show="!preview">
             <pre>
-              <code x-text="$refs.demo.innerHTML">
+              <code class="html" x-text="$refs.demo.innerHTML">
               </code>
             </pre>
           </div>
@@ -199,7 +207,7 @@
             <h2>Description List Card</h2>
             <hstack spacing="xs">
               <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -251,7 +259,7 @@
 
           <div x-show="!preview">
             <pre>
-              <code x-text="$refs.demo.innerHTML">
+              <code class="html" x-text="$refs.demo.innerHTML">
               </code>
             </pre>
           </div>
@@ -262,7 +270,7 @@
             <h2>Dashboard Section</h2>
             <hstack spacing="xs">
               <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -298,7 +306,7 @@
 
           <div x-show="!preview">
             <pre>
-              <code x-text="$refs.demo.innerHTML">
+              <code class="html" x-text="$refs.demo.innerHTML">
               </code>
             </pre>
           </div>
@@ -309,7 +317,7 @@
             <h2>Dashboard</h2>
             <hstack spacing=xs>
               <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -390,7 +398,7 @@
 
           <div x-show="!preview">
             <pre>
-              <code x-text="$refs.demo.innerHTML">
+              <code class="html" x-text="$refs.demo.innerHTML">
               </code>
             </pre>
           </div>
@@ -401,7 +409,7 @@
             <h2>Dashboard w/ Sidebar</h2>
             <hstack spacing=xs>
               <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -474,7 +482,7 @@
 
           <div x-show="!preview">
             <pre>
-              <code x-text="$refs.demo.innerHTML">
+              <code class="html" x-text="$refs.demo.innerHTML">
               </code>
             </pre>
           </div>
@@ -483,5 +491,19 @@
 
       <spacer></spacer>
     </vstack>
+  </main>
+    <script>
+      //var codeButton = document.querySelector('.code-button')
+
+      document.addEventListener('click', (event) => {
+        if(event.target.classList.contains('code-button')) {
+          setTimeout(function() {
+            document.querySelectorAll('pre code').forEach((block) => {
+              hljs.highlightBlock(block);
+            });
+          }, 0);
+        }
+      });
+    </script>
   </body>
 </html>

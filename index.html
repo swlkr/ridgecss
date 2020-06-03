@@ -4,236 +4,256 @@
     <meta charset="utf-8">
     <title>ridge.css</title>
     <link rel="stylesheet" href="ridge.css" />
+    <link rel="stylesheet" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)" href="atom-one-light.css">
+    <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="atom-one-dark.css">
     <script src="alpine.js" defer></script>
+    <script src="highlight.pack.js"></script>
   </head>
-  <body class="ph3">
-    <vstack x-bind:stretch="menu" spacing="m" x-data="{ menu: false }">
-      <hstack class="md lg">
-        <a href="index.html">
-          <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
-        </a>
-        <b>ridge.css</b>
-        <spacer></spacer>
-        <hstack spacing="m">
-          <a href="components.html">Components</a>
-          <a href="https://github.com/swlkr/ridgecss">Github</a>
+  <body>
+    <main>
+      <vstack x-bind:stretch="menu" spacing="m" x-data="{ menu: false }">
+        <hstack class="md lg">
           <a href="index.html">
-            <button>Download (23kb)</button>
+            <hstack>
+              <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
+              <b>ridge.css</b>
+            </hstack>
           </a>
-        </hstack>
-      </hstack>
-
-      <vstack stretch>
-        <hstack class="sm">
-          <a href="index.html">
-            <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
-          </a>
-          <b>ridge.css</b>
           <spacer></spacer>
-          <a href="" @click.prevent="menu = true" x-show="!menu">
-            <svg class="bi bi-list" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
-            </svg>
-          </a>
-          <a href="" @click.prevent="menu = false" x-show="menu">
-            <svg class="bi bi-x" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
-              <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
-            </svg>
-          </a>
+          <hstack spacing="m">
+            <a href="components.html">Components</a>
+            <a href="https://github.com/swlkr/ridgecss">Github</a>
+            <a href="index.html">
+              <button>Download (23kb)</button>
+            </a>
+          </hstack>
         </hstack>
 
-        <vstack spacing="m" x-show="menu" stretch align-x="center" align-y="center">
-          <a href="components.html">Components</a>
-          <a href="https://github.com/swlkr/ridgecss">Github</a>
-          <a href="index.html">
-            <button>Download (23kb)</button>
-          </a>
-        </vstack>
-      </vstack>
-
-      <vstack x-show="!menu" spacing=l>
-        <vstack align-x="center" class="p1">
-          <h1>A maximalist framework for making web apps fast</h1>
-          <p>
-            Classless css mixed with a dash of atomic css, <a href="https://github.com/almonk/pylon">swift ui inspired</a> helpers and <a href="https://github.com/alpinejs/alpine">alpine.js</a> markup
-          </p>
-        </vstack>
-
-        <vstack>
-          <h2>Typography</h2>
-
-          <h1>h1</h1>
-          <h2>h2</h2>
-          <h3>h3</h3>
-          <h4>h4</h4>
-          <h5>h5</h5>
-          <h6>h6</h6>
-
-          <p>
-            This is a short bit of text in a paragraph tag
-            <br />
-            <strong>strong</strong>
-            <b>b</b>
-            <em>em</em>
-            <i>italic</i>
-            <u>underline</u>
-            <s>strikethrough</s>
-            <mark>mark</mark>
-            <kbd>Cmd</kbd>+<kbd>P</kbd>
-          </p>
-
-          <blockquote>
-            Climb the mountains and get their good tidings
-            <footer>
-              <cite>John Muir</cite>
-            </footer>
-          </blockquote>
-        </vstack>
-
-        <vstack spacing=s>
-          <h2>Lists</h2>
-          <ul>
-            <li>Unordered list</li>
-            <li><a href="#">Unordered links</a></li>
-          </ul>
-
-          <ol>
-            <li>Ordered list</li>
-            <li><a href="#">Ordered links</a></li>
-          </ol>
-
-          <dl>
-            <vstack>
-              <dt>Description title</dt>
-              <dd>Description</dd>
-            </vstack>
-          </dl>
-        </vstack>
-
-        <vstack>
-          <h2>Buttons</h2>
-          <input type="submit" value="Submit">
-          <button>Button</button>
-          <a href="#">
-            <button>Button Link</button>
-          </a>
-          <button disabled="">Disabled</button>
-        </vstack>
-
-        <vstack>
-          <h2>Forms</h2>
-          <label for="text">Text</label>
-          <input type="text" name="text" id="text" tab-index="1" placeholder="text"></input>
-
-          <label for="textarea">Text Area</label>
-          <textarea rows="4" cols="27" id="textarea" placeholder="textarea"></textarea>
-
-          <label for="radio">Radio</label>
-          <input type="radio" name="radio" id="radio" tab-index="1" value="true"></input>
-
-          <label for="checkbox">Checkbox</label>
-          <input type="checkbox" name="checkbox" id="checkbox"></input>
-
-          <label for="range">Range</label>
-          <input type="range" name="range" id="range"></input>
-
-          <label for="drop">Dropdown</label>
-          <select name="drop" id="drop">
-            <option value="drop1">One</option>
-            <option value="drop2">Two</option>
-            <option value="drop3">Three</option>
-          </select>
-        </vstack>
-
-        <vstack>
-          <h2>Tables</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>One</th>
-                <th>Two</th>
-                <th>Three</th>
-                <th>Four</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>One</td>
-                <td>Two</td>
-                <td>Three</td>
-                <td>Four</td>
-              </tr>
-              <tr>
-                <td>Five</td>
-                <td>Six</td>
-                <td>Seven</td>
-                <td>Eight</td>
-              </tr>
-              <tr>
-                <td>Nine</td>
-                <td>Ten</td>
-                <td>Eleven</td>
-                <td>Twelve</td>
-              </tr>
-            </tbody>
-          </table>
-        </vstack>
-
-        <vstack spacing="s">
-          <h2>Cards</h2>
-          <hstack responsive spacing="s">
-            <aside stretch>
-              <vstack class="pa4">
-                <h3>I'm a card!</h3>
-              </vstack>
-            </aside>
-
-            <aside stretch>
-              <vstack class="pa4">
-                <h3>I'm a card!</h3>
-              </vstack>
-            </aside>
-
-            <aside stretch>
-              <vstack class="pa4">
-                <h3>I'm a card!</h3>
-              </vstack>
-            </aside>
+        <vstack stretch>
+          <hstack class="sm">
+            <a href="index.html">
+              <img style="width: 50px" src="logo.png" alt="green blue gradient mountain icon"></img>
+            </a>
+            <a href="index.html">
+              <b>ridge.css</b>
+            </a>
+            <spacer></spacer>
+            <a href="" @click.prevent="menu = true" x-show="!menu">
+              <svg class="bi bi-list" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+            <a href="" @click.prevent="menu = false" x-show="menu">
+              <svg class="bi bi-x" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+              </svg>
+            </a>
           </hstack>
 
-          <aside>
-            <vstack stretch class="pa4">
-              <h3>I'm a card!</h3>
-            </vstack>
-          </aside>
+          <vstack spacing="m" x-show="menu" stretch align-x="center" align-y="center">
+            <a href="components.html">Components</a>
+            <a href="https://github.com/swlkr/ridgecss">Github</a>
+            <a href="index.html">
+              <button>Download (23kb)</button>
+            </a>
+          </vstack>
         </vstack>
 
-        <vstack>
-          <h2>Details</h2>
-          <details>
-            <summary>The deets</summary>
-            Something small enough to escape casual notice
-          </details>
+        <vstack x-show="!menu" spacing=l>
+          <vstack align-x="center" class="p1">
+            <h1>A maximalist framework for making web apps fast</h1>
+            <p>
+              Classless css mixed with a dash of atomic css, <a href="https://github.com/almonk/pylon">swift ui inspired</a> helpers and <a href="https://github.com/alpinejs/alpine">alpine.js</a> markup
+            </p>
+          </vstack>
+
+          <vstack>
+            <h2>Typography</h2>
+
+            <h1>h1</h1>
+            <h2>h2</h2>
+            <h3>h3</h3>
+            <h4>h4</h4>
+            <h5>h5</h5>
+            <h6>h6</h6>
+
+            <p>
+              This is a short bit of text in a paragraph tag
+              <br />
+              <strong>strong</strong>
+              <b>b</b>
+              <em>em</em>
+              <i>italic</i>
+              <u>underline</u>
+              <s>strikethrough</s>
+              <mark>mark</mark>
+              <kbd>Cmd</kbd>+<kbd>P</kbd>
+            </p>
+
+            <blockquote>
+              Climb the mountains and get their good tidings
+              <footer>
+                <cite>John Muir</cite>
+              </footer>
+            </blockquote>
+          </vstack>
+
+          <vstack spacing=s>
+            <h2>Lists</h2>
+            <ul>
+              <li>Unordered list</li>
+              <li><a href="#">Unordered links</a></li>
+            </ul>
+
+            <ol>
+              <li>Ordered list</li>
+              <li><a href="#">Ordered links</a></li>
+            </ol>
+
+            <dl>
+              <vstack>
+                <dt>Description title</dt>
+                <dd>Description</dd>
+              </vstack>
+            </dl>
+          </vstack>
+
+          <vstack>
+            <h2>Buttons</h2>
+            <hstack responsive spacing=s>
+              <input type="submit" value="Submit">
+              <button>Button</button>
+              <a href>
+                <button>Link Button</button>
+              </a>
+              <button disabled="">Disabled</button>
+            </hstack>
+          </vstack>
+
+          <vstack>
+            <h2>Forms</h2>
+            <label for="text">Text</label>
+            <input type="text" name="text" id="text" tab-index="1" placeholder="text"></input>
+
+            <label for="textarea">Text Area</label>
+            <textarea rows="4" cols="27" id="textarea" placeholder="textarea"></textarea>
+
+            <label for="radio">Radio</label>
+            <input type="radio" name="radio" id="radio" tab-index="1" value="true"></input>
+
+            <label for="checkbox">Checkbox</label>
+            <input type="checkbox" name="checkbox" id="checkbox"></input>
+
+            <label for="range">Range</label>
+            <input type="range" name="range" id="range"></input>
+
+            <label for="drop">Dropdown</label>
+            <select name="drop" id="drop">
+              <option value="drop1">One</option>
+              <option value="drop2">Two</option>
+              <option value="drop3">Three</option>
+            </select>
+          </vstack>
+
+          <vstack>
+            <h2>Tables</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>One</th>
+                  <th>Two</th>
+                  <th>Three</th>
+                  <th>Four</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>One</td>
+                  <td>Two</td>
+                  <td>Three</td>
+                  <td>Four</td>
+                </tr>
+                <tr>
+                  <td>Five</td>
+                  <td>Six</td>
+                  <td>Seven</td>
+                  <td>Eight</td>
+                </tr>
+                <tr>
+                  <td>Nine</td>
+                  <td>Ten</td>
+                  <td>Eleven</td>
+                  <td>Twelve</td>
+                </tr>
+                <tr>
+                  <td>Thirteen</td>
+                  <td>Fourteen</td>
+                  <td>Fifteen</td>
+                  <td>Sixteen</td>
+                </tr>
+              </tbody>
+            </table>
+          </vstack>
+
+          <vstack spacing="s">
+            <h2>Cards</h2>
+            <section>
+              <aside stretch>
+                <vstack class="pa4">
+                  <h3>I'm a card!</h3>
+                </vstack>
+              </aside>
+
+              <aside stretch>
+                <vstack class="pa4">
+                  <h3>I'm a card!</h3>
+                </vstack>
+              </aside>
+
+              <aside stretch>
+                <vstack class="pa4">
+                  <h3>I'm a card!</h3>
+                </vstack>
+              </aside>
+            </section>
+
+            <aside>
+              <vstack stretch class="pa4">
+                <h3>I'm a card!</h3>
+              </vstack>
+            </aside>
+          </vstack>
+
+          <vstack>
+            <h2>Details</h2>
+            <details>
+              <summary>The deets</summary>
+              Something small enough to escape casual notice
+            </details>
+          </vstack>
+
+          <vstack>
+            <h2>Code blocks</h2>
+            <pre>
+              <code>
+  Code blocks look like this
+              </code>
+            </pre>
+          </vstack>
+
+          <vstack>
+            <h2>Footer</h2>
+            <footer>This is the footer</footer>
+          </vstack>
+
         </vstack>
 
-        <vstack>
-          <h2>Code blocks</h2>
-          <pre>
-            <code>
-Code blocks look like this
-            </code>
-          </pre>
-        </vstack>
-
-        <vstack>
-          <h2>Footer</h2>
-          <footer>This is the footer</footer>
-        </vstack>
-
+        <spacer></spacer>
       </vstack>
-
-      <spacer></spacer>
-    </vstack>
+    </main>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
   </body>
 </html>
