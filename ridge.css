@@ -1,6 +1,6 @@
 /* ridge.css */
 
-* {
+*, *:before, *:after {
   box-sizing: border-box;
 }
 
@@ -148,12 +148,13 @@ vstack[stretch] {
 
 @media (max-width: 507px) {
   hstack[responsive] {
-    display: block;
+    flex: 1 1;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   hstack[responsive]>* {
     margin-right: 0;
-    display: block;
   }
 
   hstack[responsive][spacing="xxs"]>* {
@@ -199,7 +200,7 @@ body {
 
 main {
   margin: 0 auto;
-  width: 80%;
+  width: 60%;
   padding: 10px;
 }
 
@@ -672,6 +673,12 @@ dd {
 .w-two-thirds { width: calc( 100% / 1.5 ); }
 .w-auto { width: auto; }
 
+.h1 { height: 1rem; }
+.h2 { height: 2rem; }
+.h3 { height: 4rem; }
+.h4 { height: 8rem; }
+.h5 { height: 16rem; }
+.h-auto { height: auto; }
 .h-100 { height: 100%; }
 
 /*
