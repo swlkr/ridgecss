@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en"
+      dir="ltr"
+      x-data="{ dark: window.matchMedia('(prefers-color-scheme: dark)').matches }"
+      x-init="window.matchMedia('(prefers-color-scheme: dark)').addListener(e => dark = e.matches);">
   <head>
     <meta charset="utf-8">
     <title>ridge.css</title>
+    <template x-if="!dark">
+      <link rel="stylesheet" href="atom-one-light.css">
+    </template>
+    <template x-if="dark">
+      <link rel="stylesheet" href="atom-one-dark.css">
+    </template>
+    <template x-if="!dark">
+      <link rel="stylesheet" href="ridge-light.css">
+    </template>
+    <template x-if="dark">
+      <link rel="stylesheet" href="ridge-dark.css">
+    </template>
     <link rel="stylesheet" href="ridge.css" />
-    <link rel="stylesheet" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)" href="atom-one-light.css">
-    <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="atom-one-dark.css">
     <script src="alpine.js" defer></script>
     <script src="highlight.pack.js"></script>
   </head>
-  <body x-data="{ dark: window.matchMedia('(prefers-color-scheme: dark)').matches }"
-        x-init="window.matchMedia('(prefers-color-scheme: dark)').addListener(e => dark = e.matches);"
-        x-bind:data-theme="dark ? 'dark' : 'light'">
+  <body>
     <main>
       <vstack spacing="m">
         <hstack>
@@ -20,18 +31,18 @@
           </a>
           <spacer></spacer>
           <hstack spacing="s">
-            <a x-show="!dark" href class="text-main mt1" @click.prevent="dark = true">
+            <a x-show="!dark" href class="text-main mt1 code-button" @click.prevent="dark = true">
               <svg class="bi bi-moon" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M14.53 10.53a7 7 0 0 1-9.058-9.058A7.003 7.003 0 0 0 8 15a7.002 7.002 0 0 0 6.53-4.47z"/>
               </svg>
             </a>
-            <a x-show="dark" href class="highlight mt1" @click.prevent="dark = false">
+            <a x-show="dark" href class="highlight mt1 code-button" @click.prevent="dark = false">
               <svg class="bi bi-brightness-high" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
               </svg>
             </a>
+            <a class="md lg" href="examples.html">Examples</a>
             <a class="md lg" href="themes.html">Themes</a>
-            <a class="md lg" href="components.html">Components</a>
             <a class="md lg" href="https://github.com/swlkr/ridgecss">Source</a>
           </hstack>
         </hstack>
@@ -238,6 +249,15 @@
             </vstack>
           </a>
 
+          <a stretch href="examples.html" class="pa3 text-main">
+            <vstack align-x="center">
+              <svg class="bi bi-grid-1x2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M6 1H1v14h5V1zm9 0h-5v5h5V1zm0 9h-5v5h5v-5zM0 1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm9 0a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1V1zm1 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1h-5z"/>
+              </svg>
+              <span>Examples</span>
+            </vstack>
+          </a>
+
           <a stretch href="themes.html" class="pa3 text-main">
             <vstack align-x="center">
               <svg class="bi bi-layers-half" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -245,15 +265,6 @@
                 <path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4zM1.563 6L8 9.433 14.438 6 8 2.567 1.562 6z"/>
               </svg>
               <span>Themes</span>
-            </vstack>
-          </a>
-
-          <a stretch href="components.html" class="pa3 text-main">
-            <vstack align-x="center">
-              <svg class="bi bi-grid-1x2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M6 1H1v14h5V1zm9 0h-5v5h5V1zm0 9h-5v5h5v-5zM0 1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm9 0a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1V1zm1 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1h-5z"/>
-              </svg>
-              <span>Parts</span>
             </vstack>
           </a>
 
