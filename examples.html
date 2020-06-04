@@ -55,6 +55,87 @@
 
         <vstack spacing=s x-data="{ preview: true }">
           <vstack spacing=xs>
+            <h2>Layout</h2>
+            <hstack spacing="xs">
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+            </hstack>
+          </vstack>
+
+          <div x-show="preview" x-ref="demo">
+<vstack spacing=s>
+  <b>vstack</b>
+  <vstack class="ba b--links">
+    <div>vstack 1</div>
+    <div>vstack 2</div>
+    <div>vstack 3</div>
+    <div>vstack 4</div>
+    <div>vstack 5</div>
+  </vstack>
+
+  <div class="h4 ba b--links">
+    <vstack stretch align-x=center align-y=center>
+      <span>vstack centered</span>
+    </vstack>
+  </div>
+
+  <b>hstack</b>
+  <hstack spacing=s class="ba b--links">
+    <div>hstack 1</div>
+    <div>hstack 2</div>
+    <div>hstack 3</div>
+    <div>hstack 4</div>
+    <div>hstack 5</div>
+    <div>hstack 6</div>
+    <div>hstack 7</div>
+  </hstack>
+
+  <b>hstack center</b>
+  <hstack spacing=s align-x=center class="ba b--links">
+    <div>centered 1</div>
+    <div>centered 2</div>
+    <div>centered 3</div>
+  </hstack>
+
+  <b>hstack stretch</b>
+  <hstack spacing=s class="ba b--links">
+    <div stretch>stretch 1</div>
+    <div stretch>stretch 2</div>
+    <div stretch>stretch 3</div>
+  </hstack>
+
+  <b>hstack responsive</b>
+  <hstack responsive spacing=s class="ba b--links">
+    <div>responsive 1</div>
+    <div>responsive 2</div>
+    <div>responsive 3</div>
+    <div>responsive 4</div>
+    <div>responsive 5</div>
+    <div>responsive 6</div>
+
+  </hstack>
+
+  <b>section</b>
+  <section class="ba b--links">
+    <div class="pa2">section 1</div>
+    <div class="pa2">section 2</div>
+    <div class="pa2">section 3</div>
+    <div class="pa2">section 4</div>
+    <div class="pa2">section 5</div>
+  </section>
+</vstack>
+          </div>
+          <div x-show="!preview">
+            <pre>
+              <code class="html" x-text="$refs.demo.innerHTML">
+              </code>
+            </pre>
+          </div>
+        </vstack>
+
+
+        <vstack spacing=s x-data="{ preview: true }">
+          <vstack spacing=xs>
             <h2>Alerts</h2>
             <hstack spacing="xs">
               <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
