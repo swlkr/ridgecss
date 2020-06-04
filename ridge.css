@@ -15,6 +15,7 @@ hstack {
   align-self: stretch;
   align-items: center;
   flex-direction: row;
+  overflow-x: scroll;
 }
 
 hstack[spacing="xl"] > * {
