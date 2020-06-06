@@ -1,30 +1,30 @@
 :root {
-  --background: #fff;
-  --background-alt: #faf9f9;
-  --background-inverse: #313a46;
+  --background: #fef5f8;
+  --background-alt: #f9cfde;
+  --background-inverse: #383b44;
 
-  --main: #363636;
-  --bright: #333;
-  --muted: #999999;
+  --main: #56527c;
+  --bright: #f29fbd;
+  --muted: #a2647a;
 
-  --link: #0076d1;
-  --focus: #0096bfab;
-  --border: #dbdbdb;
-  --code: var(--main);
+  --link: #aba3f7;
+  --focus: #e78faf;
+  --border: var(--background-alt);
+  --code: #383b44;
 
-  --animation-duration: 0.1s;
-  --button: var(--link);
-  --button-hover: #dddddd;
+  --animation-duration: 0.25s;
+  --button: #aba3f7;
+  --button-hover: #676294;
 
-  --form-placeholder: #949494;
-  --form-text: var(--main);
+  --form-placeholder: #f6bcd1;
+  --form-text: #383b44;
 
-  --variable: #39a33c;
-  --highlight: #ffff00;
+  --variable: #8eb05f;
+  --highlight: #fbe2eb;
 
   --select-arrow: url("data:image/svg+xml;charset=utf-8,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height='62.5' width='116.9' fill='%23161f27'%3E %3Cpath d='M115.3,1.6 C113.7,0 111.1,0 109.5,1.6 L58.5,52.7 L7.4,1.6 C5.8,0 3.2,0 1.6,1.6 C0,3.2 0,5.8 1.6,7.4 L55.5,61.3 C56.3,62.1 57.3,62.5 58.4,62.5 C59.4,62.5 60.5,62.1 61.3,61.3 L115.2,7.4 C116.9,5.8 116.9,3.2 115.3,1.6Z'/%3E %3C/svg%3E");
 
-  --shadow: 1px 1px 4px var(#999);
+  --shadow: 0 8px 20px -5px rgba(100, 100, 100, 0.3), 0 4px 25px 0px rgba(100,100,100, 0.12), 0 8px 10px -5px rgba(100, 100, 100, 0.2);
 
   --spacing-xxs: 0.25rem;
   --spacing-xs:  0.5rem;

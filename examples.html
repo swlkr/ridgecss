@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 <html lang="en"
       dir="ltr"
-      x-data="{ dark: window.matchMedia('(prefers-color-scheme: dark)').matches }"
+      x-data="{ themes: false, theme: '', dark: window.matchMedia('(prefers-color-scheme: dark)').matches }"
       x-init="window.matchMedia('(prefers-color-scheme: dark)').addListener(e => dark = e.matches);">
   <head>
     <meta charset="utf-8">
     <title>ridge.css</title>
     <template x-if="!dark">
-      <link rel="stylesheet" href="atom-one-light.css" />
-    </template>
-    <template x-if="!dark">
-      <link rel="stylesheet" href="ridge-light.css" />
+      <link rel="stylesheet" href="atom-one-light.css">
     </template>
     <template x-if="dark">
-      <link rel="stylesheet" href="atom-one-dark.css" />
+      <link rel="stylesheet" href="atom-one-dark.css">
     </template>
-    <template x-if="dark">
-      <link rel="stylesheet" href="ridge-dark.css" />
+    <template x-if="!dark && theme === ''">
+      <link rel="stylesheet" href="ridge-light.css">
+    </template>
+    <template x-if="dark && theme === ''">
+      <link rel="stylesheet" href="ridge-dark.css">
+    </template>
+    <template x-if="theme === 'watermelon' && dark">
+      <link rel="stylesheet" href="themes/ridge-watermelon-dark.css">
+    </template>
+    <template x-if="theme === 'watermelon' && !dark">
+      <link rel="stylesheet" href="themes/ridge-watermelon-light.css">
+    </template>
+    <template x-if="theme === 'valentines' && dark">
+      <link rel="stylesheet" href="themes/ridge-valentines-dark.css">
+    </template>
+    <template x-if="theme === 'valentines' && !dark">
+      <link rel="stylesheet" href="themes/ridge-valentines-light.css">
     </template>
     <link rel="stylesheet" href="ridge.css" />
     <script src="alpine.js" defer></script>
@@ -27,11 +39,14 @@
     <vstack spacing="s">
       <hstack>
         <a href="index.html">
-          <img class="w3" src="logo.png" alt="green blue gradient mountain icon"></img>
+          <hstack>
+            <img class="w3" src="logo.png" alt="green blue gradient mountain icon"></img>
+            <span class="bright">ridge.css</span>
+          </hstack>
         </a>
         <spacer></spacer>
         <hstack spacing="s">
-          <a x-show="!dark" href class="text-main mt1" @click.prevent="dark = true">
+          <a x-show="!dark" href class="main mt1" @click.prevent="dark = true">
             <svg class="bi bi-moon" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M14.53 10.53a7 7 0 0 1-9.058-9.058A7.003 7.003 0 0 0 8 15a7.002 7.002 0 0 0 6.53-4.47z"/>
             </svg>
@@ -41,9 +56,15 @@
               <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
             </svg>
           </a>
-          <a class="bb b--links md lg" href="examples.html">Examples</a>
-          <a class="md lg" href="index.html">Themes</a>
-          <a class="md lg" href="https://github.com/swlkr/ridgecss">Source</a>
+          <a class="underline md lg" href="examples.html">Examples</a>
+          <div class="md lg relative">
+            <a href="themes.html" @click.away="themes = false" @click.prevent="themes = !themes">Themes</a>
+            <aside x-show="themes" x-cloak="!themes" class="mt4 absolute w5 ba br2">
+              <vstack x-html="$refs.themes.innerHTML">
+              </vstack>
+            </aside>
+          </div>
+          <a class="md lg" href="https://github.com/swlkr/ridgecss">Github</a>
         </hstack>
       </hstack>
 
@@ -57,15 +78,15 @@
           <vstack spacing=xs>
             <h2>Layout</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
           <div x-show="preview" x-ref="demo">
 <vstack spacing=s>
   <b>vstack</b>
-  <vstack class="ba b--links">
+  <vstack class="ba b--link">
     <div>vstack 1</div>
     <div>vstack 2</div>
     <div>vstack 3</div>
@@ -73,14 +94,14 @@
     <div>vstack 5</div>
   </vstack>
 
-  <div class="h4 ba b--links">
+  <div class="h4 ba b--link">
     <vstack stretch align-x=center align-y=center>
       <span>vstack centered</span>
     </vstack>
   </div>
 
   <b>hstack</b>
-  <hstack spacing=s class="ba b--links">
+  <hstack spacing=s class="ba b--link overflow-x">
     <div>hstack 1</div>
     <div>hstack 2</div>
     <div>hstack 3</div>
@@ -91,21 +112,21 @@
   </hstack>
 
   <b>hstack center</b>
-  <hstack spacing=s align-x=center class="ba b--links">
+  <hstack spacing=s align-x=center class="ba b--link">
     <div>centered 1</div>
     <div>centered 2</div>
     <div>centered 3</div>
   </hstack>
 
   <b>hstack stretch</b>
-  <hstack spacing=s class="ba b--links">
+  <hstack spacing=s class="ba b--link">
     <div stretch>stretch 1</div>
     <div stretch>stretch 2</div>
     <div stretch>stretch 3</div>
   </hstack>
 
   <b>hstack responsive</b>
-  <hstack responsive spacing=s class="ba b--links">
+  <hstack responsive spacing=s class="ba b--link">
     <div>responsive 1</div>
     <div>responsive 2</div>
     <div>responsive 3</div>
@@ -116,7 +137,7 @@
   </hstack>
 
   <b>section</b>
-  <section class="ba b--links">
+  <section class="ba b--link">
     <div class="pa2">section 1</div>
     <div class="pa2">section 2</div>
     <div class="pa2">section 3</div>
@@ -138,17 +159,17 @@
           <vstack spacing=xs>
             <h2>Alerts</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
           <div x-show="preview" x-ref="demo">
 <vstack spacing=s>
-  <div class="pa3 bg-background text-bright br3">
+  <div class="pa3 bg-background-alt br3">
     A simple well that uses the default theme colors
   </div>
-  <div class="pa3 bg-links text-bright br3">
+  <div class="pa3 bg-link bright br3">
     A simple well that uses the default theme colors
   </div>
   <div class="pa3 bg-inverse background br3" x-show="!closed" x-data="{closed: false}">
@@ -178,8 +199,8 @@
           <vstack spacing=xs>
             <h2>Stats</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -220,8 +241,8 @@
           <vstack spacing=xs>
             <h2>Cards</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -274,8 +295,8 @@
           <vstack spacing=xs>
             <h2>Description List Card</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background': preview}">Preview</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -337,8 +358,8 @@
           <vstack spacing=s>
             <h2>Section</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -384,8 +405,8 @@
           <vstack spacing=s>
             <h2>Dashboard</h2>
             <hstack spacing=xs>
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background': preview}">Preview</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -399,10 +420,10 @@
       <h2 class="">logo</h2>
     </hstack>
 
-    <a href @click.prevent="active = 'dashboard'" class="bb pv2 bw1" :class="{ 'b--links': active === 'dashboard' }">Dashboard</a>
-    <a href @click.prevent="active = 'team'" class="bb pv2 bw1" :class="{ 'b--links': active === 'team' }">Team</a>
-    <a href @click.prevent="active = 'tags'" class="bb pv2 bw1" :class="{ 'b--links': active === 'tags' }">Tags</a>
-    <a href @click.prevent="active = 'calendar'" class="bb pv2 bw1" :class="{ 'b--links': active === 'calendar' }">Calendar</a>
+    <a href @click.prevent="active = 'dashboard'" class="bb pv2 bw1" :class="{ 'b--link': active === 'dashboard' }">Dashboard</a>
+    <a href @click.prevent="active = 'team'" class="bb pv2 bw1" :class="{ 'b--link': active === 'team' }">Team</a>
+    <a href @click.prevent="active = 'tags'" class="bb pv2 bw1" :class="{ 'b--link': active === 'tags' }">Tags</a>
+    <a href @click.prevent="active = 'calendar'" class="bb pv2 bw1" :class="{ 'b--link': active === 'calendar' }">Calendar</a>
     <spacer></spacer>
     <svg class="bi bi-bell" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z"/>
@@ -436,10 +457,10 @@
     </hstack>
 
     <vstack spacing="m" x-show="menu" stretch align-x="center" align-y="center">
-      <a href @click.prevent="active = 'dashboard'" class="bb pv2 bw1" :class="{ 'b--links': active === 'dashboard' }">Dashboard</a>
-      <a href @click.prevent="active = 'team'" class="bb pv2 bw1" :class="{ 'b--links': active === 'team' }">Team</a>
-      <a href @click.prevent="active = 'tags'" class="bb pv2 bw1" :class="{ 'b--links': active === 'tags' }">Tags</a>
-      <a href @click.prevent="active = 'calendar'" class="bb pv2 bw1" :class="{ 'b--links': active === 'calendar' }">Calendar</a>
+      <a href @click.prevent="active = 'dashboard'" class="bb pv2 bw1" :class="{ 'b--link': active === 'dashboard' }">Dashboard</a>
+      <a href @click.prevent="active = 'team'" class="bb pv2 bw1" :class="{ 'b--link': active === 'team' }">Team</a>
+      <a href @click.prevent="active = 'tags'" class="bb pv2 bw1" :class="{ 'b--link': active === 'tags' }">Tags</a>
+      <a href @click.prevent="active = 'calendar'" class="bb pv2 bw1" :class="{ 'b--link': active === 'calendar' }">Calendar</a>
     </vstack>
 
   <div class="relative">
@@ -459,7 +480,7 @@
   </div>
 
   <vstack x-show="!menu" stretch align-x="center" align-y="center" class="bg-background-alt b--background br3 b--dashed">
-    <span style="color: var(--text-bright)">Your dashboard goes here</span>
+    <span style="color: var(--bright)">Your dashboard goes here</span>
   </vstack>
 </vstack>
           </div>
@@ -476,24 +497,24 @@
           <vstack spacing=s>
             <h2>Dashboard w/ Sidebar</h2>
             <hstack spacing=xs>
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-links background-body': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-links background-body': !preview}">Code</a>
+              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
           <div style="height: 600px" x-show="preview" x-ref="demo">
 <hstack x-data="{ active: 'Dashboard', menu: false }" class="h-100 relative" >
-  <vstack stretch spacing=xs class="bg-inverse pa2 w-third color-inverse md lg">
+  <vstack stretch spacing=xs class="bg-inverse inverse pa2 w-third md lg">
     <hstack spacing=xs class="ph2">
       <svg class="bi bi-exclude" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v9A1.5 1.5 0 0 0 1.5 12H4v2.5A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4H12V1.5A1.5 1.5 0 0 0 10.5 0h-9zM12 4H5.5A1.5 1.5 0 0 0 4 5.5V12h6.5a1.5 1.5 0 0 0 1.5-1.5V4z"/>
       </svg>
-      <h2 class="color-inverse">logo</h2>
+      <h2 class="inverse">logo</h2>
     </hstack>
-    <a href @click.prevent="active = 'Dashboard'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Dashboard' }">Dashboard</a>
-    <a href @click.prevent="active = 'Team'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Team' }">Team</a>
-    <a href @click.prevent="active = 'Tags'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Tags' }">Tags</a>
-    <a href @click.prevent="active = 'Calendar'" class="pv2 ph3 br3" :class="{ 'bg-links color-inverse': active === 'Calendar' }">Calendar</a>
+    <a href @click.prevent="active = 'Dashboard'" class="pv2 ph3 br3" :class="{ 'bg-link bright': active === 'Dashboard' }">Dashboard</a>
+    <a href @click.prevent="active = 'Team'" class="pv2 ph3 br3" :class="{ 'bg-link bright': active === 'Team' }">Team</a>
+    <a href @click.prevent="active = 'Tags'" class="pv2 ph3 br3" :class="{ 'bg-link bright': active === 'Tags' }">Tags</a>
+    <a href @click.prevent="active = 'Calendar'" class="pv2 ph3 br3" :class="{ 'bg-link bright': active === 'Calendar' }">Calendar</a>
     <spacer></spacer>
     <hstack spacing=s class="pa2">
       <img src="profile.png" class="w2 br-100" />
@@ -511,8 +532,8 @@
     </vstack>
   </vstack>
 
-  <hstack class="absolute bottom-0 right-0 left-0 sm bt b--border bg-background-alt">
-    <a stretch href @click.prevent="active = 'Dashboard'" class="pa3 text-main" :class="{ 'links': active === 'Dashboard' }">
+  <hstack class="absolute bottom-0 right-0 left-0 sm bt b--border bg-background-alt overflow-x">
+    <a stretch href @click.prevent="active = 'Dashboard'" class="pa3 main" :class="{ 'links': active === 'Dashboard' }">
       <vstack align-x=center spacing=xs>
         <svg class="bi bi-layout-sidebar" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M14 2H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
@@ -521,7 +542,7 @@
         <span>Dashboard</span>
       </vstack>
     </a>
-    <a stretch href @click.prevent="active = 'Team'" class="pa3 text-main" :class="{ 'links': active === 'Team' }">
+    <a stretch href @click.prevent="active = 'Team'" class="pa3 main" :class="{ 'links': active === 'Team' }">
       <vstack align-x=center spacing=xs>
         <svg class="bi bi-people" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.995-.944v-.002.002zM7.022 13h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zm7.973.056v-.002.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
@@ -529,7 +550,7 @@
         <span>Team</span>
       </vstack>
     </a>
-    <a stretch href @click.prevent="active = 'Tags'" class="pa3 text-main" :class="{ 'links': active === 'Tags' }">
+    <a stretch href @click.prevent="active = 'Tags'" class="pa3 main" :class="{ 'links': active === 'Tags' }">
       <vstack align-x=center spacing=xs>
         <svg class="bi bi-tag" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M.5 2A1.5 1.5 0 0 1 2 .5h4.586a1.5 1.5 0 0 1 1.06.44l7 7a1.5 1.5 0 0 1 0 2.12l-4.585 4.586a1.5 1.5 0 0 1-2.122 0l-7-7A1.5 1.5 0 0 1 .5 6.586V2zM2 1.5a.5.5 0 0 0-.5.5v4.586a.5.5 0 0 0 .146.353l7 7a.5.5 0 0 0 .708 0l4.585-4.585a.5.5 0 0 0 0-.708l-7-7a.5.5 0 0 0-.353-.146H2z"/>
@@ -538,7 +559,7 @@
         <span>Tags</span>
       </vstack>
     </a>
-    <a stretch href @click.prevent="active = 'Calendar'" class="pa3 text-main" :class="{ 'links': active === 'Calendar' }">
+    <a stretch href @click.prevent="active = 'Calendar'" class="pa3 main" :class="{ 'links': active === 'Calendar' }">
       <vstack align-x=center spacing=xs>
         <svg class="bi bi-calendar2-day" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M4.684 12.523v-2.3h2.261v-.61H4.684V7.801h2.464v-.61H4v5.332h.684zm3.296 0h.676V9.98c0-.554.227-1.007.953-1.007.125 0 .258.004.329.015v-.613a1.806 1.806 0 0 0-.254-.02c-.582 0-.891.32-1.012.567h-.02v-.504H7.98v4.105zm2.805-5.093c0 .238.192.425.43.425a.428.428 0 1 0 0-.855.426.426 0 0 0-.43.43zm.094 5.093h.672V8.418h-.672v4.105z"/>
@@ -564,8 +585,8 @@
 
       <spacer></spacer>
       <div style="height: 50px; width: 100%;" class="sm"></div>
-      <hstack class="sm fixed left-0 right-0 bottom-0 bt b--border bg-background-body" style="z-index: 2">
-        <a stretch href="index.html" class="pa3 text-main">
+      <hstack class="sm fixed left-0 right-0 bottom-0 bt b--border bg-background-alt overflow-x" style="z-index: 2">
+        <a stretch href="index.html" class="pa3 main">
           <vstack align-x="center">
             <svg class="bi bi-house-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
@@ -584,7 +605,7 @@
           </vstack>
         </a>
 
-        <a stretch href="themes.html" class="pa3 text-main">
+        <a stretch href="themes.html" class="pa3 main">
           <vstack align-x="center">
             <svg class="bi bi-layers-half" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3.188 8L.264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l-4.578 2.441a.5.5 0 0 1-.47 0L3.188 8z"/>
@@ -594,17 +615,24 @@
           </vstack>
         </a>
 
-        <a stretch href="https://github.com/swlkr/ridgecss" class="pa3 text-main">
+        <a stretch href="https://github.com/swlkr/ridgecss" class="pa3 main">
           <vstack align-x="center">
             <svg class="bi bi-code" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M5.854 4.146a.5.5 0 0 1 0 .708L2.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm4.292 0a.5.5 0 0 0 0 .708L13.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
             </svg>
-            Source
+            Github
           </vstack>
         </a>
       </hstack>
     </vstack>
   </main>
+
+    <template x-ref="themes">
+      <a href @click.prevent="theme = ''" class="w-100 hover:bg-link hover:bright pa2">Default</a>
+      <a href @click.prevent="theme = 'watermelon'" class="w-100 hover:bg-link hover:bright pa2">Watermelon</a>
+      <a href @click.prevent="theme = 'valentines'" class="w-100 hover:bg-link hover:bright pa2">Valentines</a>
+    </template>
+
     <script>
       document.addEventListener('click', (event) => {
         if(event.target.classList.contains('code-button')) {
