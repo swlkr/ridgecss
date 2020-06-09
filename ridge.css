@@ -520,10 +520,11 @@ details {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: var(--background-alt);
+  background-color: var(--background);
   padding: 10px 10px 0;
   margin: 1em 0;
   border-radius: 6px;
+  border: solid 1px var(--background-alt);
   overflow: hidden;
 }
 
