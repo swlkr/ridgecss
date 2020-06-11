@@ -143,7 +143,7 @@ vstack[stretch] {
 
 body {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 969px;
   padding: var(--spacing-m);
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
