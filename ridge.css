@@ -931,6 +931,10 @@ a.hover\:no-underline {
   text-decoration: none;
 }
 
+.tl { text-align: left; }
+.tr { text-align: right; }
+.tc { text-align: center; }
+
 /*
    RESPONSIVE
 */
