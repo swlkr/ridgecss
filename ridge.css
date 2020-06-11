@@ -142,7 +142,9 @@ vstack[stretch] {
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: var(--spacing-m);
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.4;
@@ -151,12 +153,6 @@ body {
 
   color: var(--main);
   background: var(--background);
-}
-
-main {
-  margin: 0 auto;
-  width: 60%;
-  padding: 10px;
 }
 
 button, input, textarea {
@@ -941,17 +937,14 @@ a.hover\:no-underline {
 */
 
 @media(max-width: 1023px) {
-  main {
+  body {
     width: 100%;
+    padding: var(--spacing-s);
   }
 }
 
 @media(max-width: 507px) {
   body {
-    padding: 0;
-  }
-
-  main {
     width: 100%;
   }
 
