@@ -12,6 +12,7 @@ Try before you buy! Here's how your html could look after applying ridge.css (wi
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ridge.css</title>
     <link rel="stylesheet" href="ridge-dark.css" />
     <link rel="stylesheet" href="ridge.css" />

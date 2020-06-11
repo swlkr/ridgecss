@@ -4,7 +4,8 @@
       x-data="{ themes: false, theme: '', dark: window.matchMedia('(prefers-color-scheme: dark)').matches }"
       x-init="window.matchMedia('(prefers-color-scheme: dark)').addListener(e => dark = e.matches);">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ridge.css</title>
     <template x-if="!dark && theme === ''">
       <link rel="stylesheet" href="ridge-light.css">
