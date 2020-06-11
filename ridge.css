@@ -241,10 +241,14 @@ select {
   outline: none;
 }
 
-button,
-input[type="submit"] {
+button {
   color: var(--background);
   background-color: var(--button);
+}
+
+input[type='submit'] {
+  color: var(--link);
+  background-color: transparent;
 }
 
 input:not([type='checkbox']):not([type='radio']),
@@ -277,14 +281,12 @@ select[multiple] {
 }
 
 button,
-input[type='submit'],
 input[type='button'] {
   padding-right: 30px;
   padding-left: 30px;
 }
 
 button:hover,
-input[type='submit']:hover,
 input[type='button']:hover {
   color: var(--bright);
   background: var(--button-hover);
@@ -514,11 +516,10 @@ details {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: var(--background);
+  background-color: var(--background-alt);
   padding: 10px 10px 0;
   margin: 1em 0;
   border-radius: 6px;
-  border: solid 1px var(--background-alt);
   overflow: hidden;
 }
 
