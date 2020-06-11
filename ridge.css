@@ -871,6 +871,8 @@ dd {
 .bg-variable { background-color: var(--variable); }
 .bg-highlight { background-color: var(--highlight); }
 
+.bg-transparent { background-color: transparent; }
+
 .background { color: var(--background); }
 .background-alt { color: var(--background-alt); }
 
