@@ -42,3 +42,15 @@ Here's a screenshot of how that looks:
 ![screenshot of default dark theme](demo.png)
 
 ## Install
+
+Download a theme, and add it to your html:
+
+```html
+<head>
+  <link rel="stylesheet" media="(prefers-color-scheme: light), (prefers-color-scheme: none)" href="ridge-light.css" />
+  <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="ridge-dark.css" />
+  <link rel="stylesheet" href="ridge.css" />
+</head>
+```
+
+The example above adds both light and dark default themes and switches depending on the OS's dark mode setting.
