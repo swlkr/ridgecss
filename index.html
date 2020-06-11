@@ -7,12 +7,6 @@
     <meta charset="utf-8">
     <title>ridge.css</title>
     <template x-if="!dark && theme === ''">
-      <link rel="stylesheet" href="atom-one-light.css">
-    </template>
-    <template x-if="dark && theme === ''">
-      <link rel="stylesheet" href="atom-one-dark.css">
-    </template>
-    <template x-if="!dark && theme === ''">
       <link rel="stylesheet" href="ridge-light.css">
     </template>
     <template x-if="dark && theme === ''">
@@ -58,7 +52,7 @@
             <a class="md lg" href="examples.html">Examples</a>
             <div class="md lg relative">
               <a href="themes.html" @click.away="themes = false" @click.prevent="themes = !themes">Themes</a>
-              <aside x-show="themes" x-cloak="!themes" class="mt4 absolute w5 ba br2">
+              <aside x-show="themes" x-cloak class="mt4 absolute w5 ba br2">
                 <vstack x-html="$refs.themes.innerHTML">
                 </vstack>
               </aside>
@@ -271,7 +265,7 @@
         </vstack>
 
         <spacer></spacer>
-        <vstack  x-show="themes" x-cloak="!themes" class="sm fixed fill bg-background-alt" x-html="$refs.themes.innerHTML">
+        <vstack  x-show="themes" x-cloak class="sm fixed fill bg-background-alt" x-html="$refs.themes.innerHTML">
         </vstack>
         <div style="height: 50px; width: 100%;" class="sm"></div>
         <hstack class="sm fixed left-0 right-0 bottom-0 bt b--border bg-background-alt" style="z-index: 2">
