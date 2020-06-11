@@ -39,6 +39,6 @@ Try before you buy! Here's how your html could look after applying ridge.css (wi
 
 Here's a screenshot of how that looks:
 
-![]()
+![screenshot of default dark theme](demo.png)
 
 ## Install
