@@ -315,9 +315,9 @@
     </main>
 
     <template x-ref="themes">
-      <a href @click.prevent="theme = ''" class="w-100 hover:bg-link hover:bright pa2">Default</a>
-      <a href @click.prevent="theme = 'watermelon'" class="w-100 hover:bg-link hover:bright pa2">Watermelon</a>
-      <a href @click.prevent="theme = 'valentines'" class="w-100 hover:bg-link hover:bright pa2">Valentines</a>
+      <a href @click.prevent="theme = ''; themes = false;" class="w-100 hover:bg-link hover:bright pa2">Default</a>
+      <a href @click.prevent="theme = 'watermelon'; themes = false;" class="w-100 hover:bg-link hover:bright pa2">Watermelon</a>
+      <a href @click.prevent="theme = 'valentines'; themes = false;" class="w-100 hover:bg-link hover:bright pa2">Valentines</a>
     </template>
   </body>
 </html>
