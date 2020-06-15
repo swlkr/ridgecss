@@ -4,8 +4,13 @@
       x-data="{ themes: false, theme: '', dark: window.matchMedia('(prefers-color-scheme: dark)').matches }"
       x-init="window.matchMedia('(prefers-color-scheme: dark)').addListener(e => dark = e.matches);">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="ridge.css">
+    <meta property="og:description" content="ridge.css examples and components for your copy pasting pleasure">
+    <meta property="og:image" content="https://ridgecss.com/social.png">
+    <meta property="og:url" content="https://ridgecss.com/examples.html">
+    <meta name="twitter:card" content="summary_large_image">
     <title>ridge.css</title>
     <noscript>
       <link rel="stylesheet" href="ridge-light.css">
@@ -42,7 +47,7 @@
     <main>
     <vstack spacing="s">
       <hstack>
-        <a href="index.html">
+        <a class="hover:no-underline" href="index.html">
           <hstack>
             <img class="w3" src="logo.png" alt="green blue gradient mountain icon" />
             <span class="bright">ridge.css</span>
