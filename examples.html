@@ -173,7 +173,7 @@
   <div class="pa3 bg-background-alt br3">
     A simple well that uses the default theme colors
   </div>
-  <div class="pa3 bg-link bright br3">
+  <div class="pa3 bg-link background-alt br3">
     A simple well that uses the default theme colors
   </div>
   <div class="pa3 bg-inverse background br3" x-show="!closed" x-data="{closed: false}">
@@ -515,16 +515,16 @@
       </svg>
       <h2 class="inverse">logo</h2>
     </hstack>
-    <a href @click.prevent="active = 'Dashboard'" class="pv2 ph3 br3" :class="{ 'bg-link bright': active === 'Dashboard' }">Dashboard</a>
-    <a href @click.prevent="active = 'Team'" class="pv2 ph3 br3" :class="{ 'bg-link bright': active === 'Team' }">Team</a>
-    <a href @click.prevent="active = 'Tags'" class="pv2 ph3 br3" :class="{ 'bg-link bright': active === 'Tags' }">Tags</a>
-    <a href @click.prevent="active = 'Calendar'" class="pv2 ph3 br3" :class="{ 'bg-link bright': active === 'Calendar' }">Calendar</a>
+    <a href @click.prevent="active = 'Dashboard'" class="pv2 ph3 br3" :class="{ 'bg-link background-alt': active === 'Dashboard' }">Dashboard</a>
+    <a href @click.prevent="active = 'Team'" class="pv2 ph3 br3" :class="{ 'bg-link background-alt': active === 'Team' }">Team</a>
+    <a href @click.prevent="active = 'Tags'" class="pv2 ph3 br3" :class="{ 'bg-link background-alt': active === 'Tags' }">Tags</a>
+    <a href @click.prevent="active = 'Calendar'" class="pv2 ph3 br3" :class="{ 'bg-link background-alt': active === 'Calendar' }">Calendar</a>
     <spacer></spacer>
     <hstack spacing=s class="pa2">
       <img src="profile.png" class="w2 br-100" />
       <vstack>
         Sean Walker
-        <a href>View Profile</a>
+        <a href class="background-alt hover:background-alt"><small>View Profile</small></a>
       </vstack>
     </hstack>
   </vstack>
