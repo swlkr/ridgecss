@@ -913,6 +913,10 @@ dd {
   color: var(--bright);
 }
 
+.hover\:bg-background-alt:hover {
+  text-decoration-color: var(--background-alt);
+}
+
 .hover\:underline:hover {
   text-decoration: underline;
 }
