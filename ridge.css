@@ -965,6 +965,7 @@ dd {
 .br-2xs { border-radius: var(--spacing-2xs); }
 .br-xs  { border-radius: var(--spacing-xs); }
 .br-s   { border-radius: var(--spacing-s); }
+.br-m   { border-radius: var(--spacing-m); }
 .br-100 { border-radius: 100%; }
 
 .br-pill { border-radius: 9999px; }
