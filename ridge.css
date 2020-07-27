@@ -1,5 +1,18 @@
 /* ridge.css */
 
+:root {
+  --spacing-3xs: 0.125rem;
+  --spacing-2xs: 0.25rem;
+  --spacing-xs:  0.5rem;
+  --spacing-s:   1rem;
+  --spacing-m:   2rem;
+  --spacing-l:   4rem;
+  --spacing-xl:  8rem;
+  --spacing-2xl: 16rem;
+  --spacing-3xl: 32rem;
+  --spacing-4xl: 64rem;
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
