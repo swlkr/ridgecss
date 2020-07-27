@@ -49,18 +49,18 @@
       <hstack>
         <a class="hover:no-underline" href="index.html">
           <hstack>
-            <img class="w3" src="logo.png" alt="green blue gradient mountain icon" />
+            <img class="w-l" src="logo.png" alt="green blue gradient mountain icon" />
             <span class="bright">ridge.css</span>
           </hstack>
         </a>
         <spacer></spacer>
         <hstack spacing="s">
-          <a x-show="!dark" href class="main mt1" @click.prevent="dark = true">
+          <a x-show="!dark" href class="main mt-2xs" @click.prevent="dark = true">
             <svg class="bi bi-moon" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M14.53 10.53a7 7 0 0 1-9.058-9.058A7.003 7.003 0 0 0 8 15a7.002 7.002 0 0 0 6.53-4.47z"/>
             </svg>
           </a>
-          <a x-show="dark" href class="highlight mt1" @click.prevent="dark = false">
+          <a x-show="dark" href class="highlight mt-2xs" @click.prevent="dark = false">
             <svg class="bi bi-brightness-high" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
             </svg>
@@ -68,7 +68,7 @@
           <a class="underline md lg" href="examples.html">Examples</a>
           <div class="md lg relative">
             <a href="themes.html" @click.away="themes = false" @click.prevent="themes = !themes">Themes</a>
-            <aside x-show="themes" x-cloak class="mt4 absolute w5 ba br2">
+            <aside x-show="themes" x-cloak class="mt4 absolute w5 ba br-xs">
               <vstack x-html="$refs.themes.innerHTML">
               </vstack>
             </aside>
@@ -87,8 +87,8 @@
           <vstack spacing=xs>
             <h2>Layout</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
+              <a href class="pa-s br-xs" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa-s br-xs code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -147,11 +147,11 @@
 
   <b>section</b>
   <section class="ba b--link">
-    <div class="pa2">section 1</div>
-    <div class="pa2">section 2</div>
-    <div class="pa2">section 3</div>
-    <div class="pa2">section 4</div>
-    <div class="pa2">section 5</div>
+    <div class="pa-s">section 1</div>
+    <div class="pa-s">section 2</div>
+    <div class="pa-s">section 3</div>
+    <div class="pa-s">section 4</div>
+    <div class="pa-s">section 5</div>
   </section>
 </vstack>
           </div>
@@ -168,24 +168,24 @@
           <vstack spacing=xs>
             <h2>Alerts</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
+              <a href class="pa-s br-xs" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa-s br-xs code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
           <div x-show="preview" x-ref="demo">
 <vstack spacing=s>
-  <div class="pa3 bg-background-alt br3">
+  <div class="pa-s bg-background-alt br-xs">
     A simple well that uses the default theme colors
   </div>
-  <div class="pa3 bg-link background-alt br3">
+  <div class="pa-s bg-link background-alt br-xs">
     A simple well that uses the default theme colors
   </div>
-  <div class="pa3 bg-inverse background br3" x-show="!closed" x-data="{closed: false}">
+  <div class="pa-s bg-inverse background br-xs" x-show="!closed" x-data="{closed: false}">
     <hstack align-y="center">
       A simple well that can be dismissed
       <spacer></spacer>
-      <a class="background" href @click.prevent="closed = true">
+      <a class="background mt-2xs" href @click.prevent="closed = true">
         <svg class="bi bi-x" width="1.3em" height="1.3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
           <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
@@ -208,26 +208,26 @@
           <vstack spacing=xs>
             <h2>Stats</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
+              <a href class="pa-s br-xs" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa-s br-xs code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
           <div x-show="preview" x-ref="demo">
-<hstack responsive spacing=s class="bg-background-alt pa4 br2">
-  <aside stretch class="pa4">
+<hstack responsive spacing=s class="bg-background-alt pa-m br-xs">
+  <aside stretch class="pa-m">
     <vstack>
       <small>Visitors</small>
       <h2>1,337</h2>
     </vstack>
   </aside>
-  <aside stretch class="pa4">
+  <aside stretch class="pa-m">
     <vstack>
       <small>Bounce Rate</small>
       <h2>3%</h2>
     </vstack>
   </aside>
-  <aside stretch class="pa4">
+  <aside stretch class="pa-m">
     <vstack>
       <small>Conversion Rate</small>
       <h2>23.57%</h2>
@@ -250,43 +250,43 @@
           <vstack spacing=xs>
             <h2>Cards</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
+              <a href class="pa-s br-xs" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa-s br-xs code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
           <div x-show="preview" x-ref="demo">
-<hstack responsive spacing=s class="bg-background-alt pa4 br2">
-  <aside stretch class="br2 bn">
+<hstack responsive spacing=s class="bg-background-alt pa-m br-xs">
+  <aside stretch class="br-xs bn">
     <vstack>
-      <svg class="br2 br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+      <svg class="br-xs br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
         <title>Placeholder</title>
         <rect width="100%" height="100%" fill="#868e96"></rect>
         <text x="30%" y="50%" fill="#dee2e6" dy=".3em">Image goes here</text>
       </svg>
-      <p class="pa4">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
+      <p class="pa-m">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
     </vstack>
   </aside>
 
-  <aside stretch class="br2 bn">
+  <aside stretch class="br-xs bn">
     <vstack>
-      <svg class="br2 br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+      <svg class="br-xs br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
         <title>Placeholder</title>
         <rect width="100%" height="100%" fill="#868e96"></rect>
         <text x="30%" y="50%" fill="#dee2e6" dy=".3em">Image goes here</text>
       </svg>
-      <p class="pa4">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
+      <p class="pa-m">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
     </vstack>
   </aside>
 
-  <aside stretch class="br2 bn">
+  <aside stretch class="br-xs bn">
     <vstack>
-      <svg class="br2 br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+      <svg class="br-xs br--top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
         <title>Placeholder</title>
         <rect width="100%" height="100%" fill="#868e96"></rect>
         <text x="30%" y="50%" fill="#dee2e6" dy=".3em">Image goes here</text>
       </svg>
-      <p class="pa4">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
+      <p class="pa-m">Lucas ipsum dolor sit amet md-5 himoran moff kowakian disra ruwee tano skakoan skywalker sio. Kushiban antilles veers lars palpatine evazan</p>
     </vstack>
   </aside>
 </hstack>
@@ -304,8 +304,8 @@
           <vstack spacing=xs>
             <h2>Description List Card</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background': !preview}">Code</a>
+              <a href class="pa-s br-xs" @click.prevent="preview = true" :class="{'bg-link background': preview}">Preview</a>
+              <a href class="pa-s br-xs code-button" @click.prevent="preview = false" :class="{'bg-link background': !preview}">Code</a>
             </hstack>
           </vstack>
 
@@ -313,14 +313,14 @@
 <aside>
   <dl>
     <vstack>
-      <vstack class="pa3">
+      <vstack class="pa-s">
         <h3>A demo description list component</h3>
         <p>A smaller more in-depth description of this component</p>
       </vstack>
 
       <hr />
 
-      <vstack spacing=m class="pa3">
+      <vstack spacing=m class="pa-s">
         <hstack responsive spacing=m>
           <vstack>
             <dt>Description title</dt>
@@ -367,15 +367,15 @@
           <vstack spacing=s>
             <h2>Section</h2>
             <hstack spacing="xs">
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
+              <a href class="pa-s br-xs" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa-s br-xs code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
           <div x-show="preview" x-ref="demo">
 <vstack spacing=xs>
   <h2>Section Title</h2>
-  <aside class="pa3">
+  <aside class="pa-s">
     <vstack>
       <form>
         <vstack spacing=s>
@@ -414,15 +414,15 @@
           <vstack spacing=s>
             <h2>Dashboard</h2>
             <hstack spacing=xs>
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background': !preview}">Code</a>
+              <a href class="pa-s br-xs" @click.prevent="preview = true" :class="{'bg-link background': preview}">Preview</a>
+              <a href class="pa-s br-xs code-button" @click.prevent="preview = false" :class="{'bg-link background': !preview}">Code</a>
             </hstack>
           </vstack>
 
           <div style="height: 400px" x-show="preview" x-ref="demo">
 <vstack spacing=xs stretch x-data="{ active: 'dashboard', menu: false, profile: false }">
   <hstack spacing=s class="bb b--background-alt bw1 md lg">
-    <hstack spacing=xs class="ph2">
+    <hstack spacing=xs class="ph-s">
       <svg class="bi bi-exclude" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v9A1.5 1.5 0 0 0 1.5 12H4v2.5A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4H12V1.5A1.5 1.5 0 0 0 10.5 0h-9zM12 4H5.5A1.5 1.5 0 0 0 4 5.5V12h6.5a1.5 1.5 0 0 0 1.5-1.5V4z"/>
       </svg>
@@ -439,13 +439,13 @@
       <path fill-rule="evenodd" d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
     </svg>
     <a href @click.prevent="profile = !profile" @click.away="profile = false">
-      <img src="profile.png" class="w2 br-100" />
+      <img src="profile.png" class="w-m br-100" />
     </a>
   </hstack>
 
   <vstack stretch>
     <hstack class="sm">
-      <hstack spacing=xs class="ph2">
+      <hstack spacing=xs class="ph-s">
         <svg class="bi bi-exclude" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v9A1.5 1.5 0 0 0 1.5 12H4v2.5A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4H12V1.5A1.5 1.5 0 0 0 10.5 0h-9zM12 4H5.5A1.5 1.5 0 0 0 4 5.5V12h6.5a1.5 1.5 0 0 0 1.5-1.5V4z"/>
         </svg>
@@ -473,22 +473,22 @@
     </vstack>
 
   <div class="relative">
-    <aside x-show="profile" class="absolute right-0 br2 w4">
+    <aside x-show="profile" class="absolute right-0 br-xs w-xl">
       <vstack>
-        <div class="bb b--border pv1 ph2">
+        <div class="bb b--border pv-xs ph-s">
           <a href>Profile</a>
         </div>
-        <div class="bb b--border pv1 ph2">
+        <div class="bb b--border pv-xs ph-s">
           <a href>Settings</a>
         </div>
-        <div class="pv1 ph2">
+        <div class="pv-xs ph-s">
           <a href>Log out</a>
         </div>
       </vstack>
     </aside>
   </div>
 
-  <vstack x-show="!menu" stretch align-x="center" align-y="center" class="bg-background-alt b--background br3 b--dashed">
+  <vstack x-show="!menu" stretch align-x="center" align-y="center" class="bg-background-alt b--background br-s b--dashed">
     <span style="color: var(--bright)">Your dashboard goes here</span>
   </vstack>
 </vstack>
@@ -506,27 +506,27 @@
           <vstack spacing=s>
             <h2>Dashboard w/ Sidebar</h2>
             <hstack spacing=xs>
-              <a href class="pa2 br2" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
-              <a href class="pa2 br2 code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
+              <a href class="pa-s br-xs" @click.prevent="preview = true" :class="{'bg-link background-alt': preview}">Preview</a>
+              <a href class="pa-s br-xs code-button" @click.prevent="preview = false" :class="{'bg-link background-alt': !preview}">Code</a>
             </hstack>
           </vstack>
 
           <div style="height: 600px" x-show="preview" x-ref="demo">
 <hstack x-data="{ active: 'Dashboard', menu: false }" class="h-100 relative" >
-  <vstack stretch spacing=xs class="bg-inverse inverse pa2 w-third md lg">
-    <hstack spacing=xs class="ph2">
+  <vstack stretch spacing=xs class="bg-inverse inverse pa-s w-third md lg">
+    <hstack spacing=xs class="ph-s">
       <svg class="bi bi-exclude" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v9A1.5 1.5 0 0 0 1.5 12H4v2.5A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4H12V1.5A1.5 1.5 0 0 0 10.5 0h-9zM12 4H5.5A1.5 1.5 0 0 0 4 5.5V12h6.5a1.5 1.5 0 0 0 1.5-1.5V4z"/>
       </svg>
       <h2 class="inverse">logo</h2>
     </hstack>
-    <a href @click.prevent="active = 'Dashboard'" class="pv2 ph3 br3" :class="{ 'bg-link background-alt': active === 'Dashboard' }">Dashboard</a>
-    <a href @click.prevent="active = 'Team'" class="pv2 ph3 br3" :class="{ 'bg-link background-alt': active === 'Team' }">Team</a>
-    <a href @click.prevent="active = 'Tags'" class="pv2 ph3 br3" :class="{ 'bg-link background-alt': active === 'Tags' }">Tags</a>
-    <a href @click.prevent="active = 'Calendar'" class="pv2 ph3 br3" :class="{ 'bg-link background-alt': active === 'Calendar' }">Calendar</a>
+    <a href @click.prevent="active = 'Dashboard'" class="pv-xs ph-s br-xs" :class="{ 'bg-link background-alt': active === 'Dashboard' }">Dashboard</a>
+    <a href @click.prevent="active = 'Team'" class="pv-xs ph-s br-xs" :class="{ 'bg-link background-alt': active === 'Team' }">Team</a>
+    <a href @click.prevent="active = 'Tags'" class="pv-xs ph-s br-xs" :class="{ 'bg-link background-alt': active === 'Tags' }">Tags</a>
+    <a href @click.prevent="active = 'Calendar'" class="pv-xs ph-s br-xs" :class="{ 'bg-link background-alt': active === 'Calendar' }">Calendar</a>
     <spacer></spacer>
-    <hstack spacing=s class="pa2">
-      <img src="profile.png" class="w2 br-100" />
+    <hstack spacing=s>
+      <img src="profile.png" class="w-m br-100" />
       <vstack>
         Sean Walker
         <a href class="background-alt hover:background-alt"><small>View Profile</small></a>
@@ -534,15 +534,15 @@
     </hstack>
   </vstack>
 
-  <vstack x-show="!menu" stretch class="w-100 bg-background-alt b--background pa3">
+  <vstack x-show="!menu" stretch class="w-100 bg-background-alt b--background pa-s">
     <vstack spacing=xs>
       <h2 x-text="active">Dashboard</h2>
-      <vstack class="br3 b--dashed b--background bw2" stretch align-x="center" align-y="center">Your dashboard goes here</vstack>
+      <vstack class="br-s b--dashed b--background bw-2xs" stretch align-x="center" align-y="center">Your dashboard goes here</vstack>
     </vstack>
   </vstack>
 
   <hstack class="absolute bottom-0 right-0 left-0 sm bt b--border bg-background-alt overflow-x">
-    <a stretch href @click.prevent="active = 'Dashboard'" class="pa3 main" :class="{ 'links': active === 'Dashboard' }">
+    <a stretch href @click.prevent="active = 'Dashboard'" class="pa-s main" :class="{ 'links': active === 'Dashboard' }">
       <vstack align-x=center spacing=xs>
         <svg class="bi bi-layout-sidebar" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M14 2H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
@@ -551,7 +551,7 @@
         <span>Dashboard</span>
       </vstack>
     </a>
-    <a stretch href @click.prevent="active = 'Team'" class="pa3 main" :class="{ 'links': active === 'Team' }">
+    <a stretch href @click.prevent="active = 'Team'" class="pa-s main" :class="{ 'links': active === 'Team' }">
       <vstack align-x=center spacing=xs>
         <svg class="bi bi-people" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.995-.944v-.002.002zM7.022 13h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zm7.973.056v-.002.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
@@ -559,7 +559,7 @@
         <span>Team</span>
       </vstack>
     </a>
-    <a stretch href @click.prevent="active = 'Tags'" class="pa3 main" :class="{ 'links': active === 'Tags' }">
+    <a stretch href @click.prevent="active = 'Tags'" class="pa-s main" :class="{ 'links': active === 'Tags' }">
       <vstack align-x=center spacing=xs>
         <svg class="bi bi-tag" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M.5 2A1.5 1.5 0 0 1 2 .5h4.586a1.5 1.5 0 0 1 1.06.44l7 7a1.5 1.5 0 0 1 0 2.12l-4.585 4.586a1.5 1.5 0 0 1-2.122 0l-7-7A1.5 1.5 0 0 1 .5 6.586V2zM2 1.5a.5.5 0 0 0-.5.5v4.586a.5.5 0 0 0 .146.353l7 7a.5.5 0 0 0 .708 0l4.585-4.585a.5.5 0 0 0 0-.708l-7-7a.5.5 0 0 0-.353-.146H2z"/>
@@ -568,7 +568,7 @@
         <span>Tags</span>
       </vstack>
     </a>
-    <a stretch href @click.prevent="active = 'Calendar'" class="pa3 main" :class="{ 'links': active === 'Calendar' }">
+    <a stretch href @click.prevent="active = 'Calendar'" class="pa-s main" :class="{ 'links': active === 'Calendar' }">
       <vstack align-x=center spacing=xs>
         <svg class="bi bi-calendar2-day" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M4.684 12.523v-2.3h2.261v-.61H4.684V7.801h2.464v-.61H4v5.332h.684zm3.296 0h.676V9.98c0-.554.227-1.007.953-1.007.125 0 .258.004.329.015v-.613a1.806 1.806 0 0 0-.254-.02c-.582 0-.891.32-1.012.567h-.02v-.504H7.98v4.105zm2.805-5.093c0 .238.192.425.43.425a.428.428 0 1 0 0-.855.426.426 0 0 0-.43.43zm.094 5.093h.672V8.418h-.672v4.105z"/>
@@ -597,7 +597,7 @@
       <vstack  x-show="themes" x-cloak class="sm fixed fill bg-background-alt" x-html="$refs.themes.innerHTML">
       </vstack>
       <hstack class="sm fixed left-0 right-0 bottom-0 bt b--border bg-background-alt overflow-x" style="z-index: 2">
-        <a stretch href="index.html" class="pa3 main">
+        <a stretch href="index.html" class="pa-s main">
           <vstack align-x="center">
             <svg class="bi bi-house-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
@@ -607,7 +607,7 @@
           </vstack>
         </a>
 
-        <a stretch href="examples.html" class="pa3 links">
+        <a stretch href="examples.html" class="pa-s links">
           <vstack align-x="center">
             <svg class="bi bi-grid-1x2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M6 1H1v14h5V1zm9 0h-5v5h5V1zm0 9h-5v5h5v-5zM0 1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm9 0a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1V1zm1 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1h-5z"/>
@@ -616,7 +616,7 @@
           </vstack>
         </a>
 
-        <a stretch href="themes.html" class="pa3 main" @click.prevent="themes = !themes">
+        <a stretch href="themes.html" class="pa-s main" @click.prevent="themes = !themes">
           <vstack align-x="center">
             <svg class="bi bi-layers-half" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3.188 8L.264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l-4.578 2.441a.5.5 0 0 1-.47 0L3.188 8z"/>
@@ -626,7 +626,7 @@
           </vstack>
         </a>
 
-        <a stretch href="https://github.com/swlkr/ridgecss" class="pa3 main">
+        <a stretch href="https://github.com/swlkr/ridgecss" class="pa-s main">
           <vstack align-x="center">
             <svg class="bi bi-code" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M5.854 4.146a.5.5 0 0 1 0 .708L2.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm4.292 0a.5.5 0 0 0 0 .708L13.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
@@ -639,9 +639,9 @@
   </main>
 
     <template x-ref="themes">
-      <a href @click.prevent="theme = ''; themes = false;" class="w-100 hover:bg-link hover:bright pa2">Default</a>
-      <a href @click.prevent="theme = 'watermelon'; themes = false;" class="w-100 hover:bg-link hover:bright pa2">Watermelon</a>
-      <a href @click.prevent="theme = 'valentines'; themes = false;" class="w-100 hover:bg-link hover:bright pa2">Valentines</a>
+      <a href @click.prevent="theme = ''; themes = false;" class="w-100 hover:bg-link hover:bright pa-xs">Default</a>
+      <a href @click.prevent="theme = 'watermelon'; themes = false;" class="w-100 hover:bg-link hover:bright pa-xs">Watermelon</a>
+      <a href @click.prevent="theme = 'valentines'; themes = false;" class="w-100 hover:bg-link hover:bright pa-xs">Valentines</a>
     </template>
 
     <script>
