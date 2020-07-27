@@ -513,10 +513,6 @@ a {
   border-width: inherit;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 code, samp, time {
   background:  var(--background-alt);
   color: var(--code);
