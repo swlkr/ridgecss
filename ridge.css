@@ -31,6 +31,14 @@ hstack {
   flex: 1 1 auto;
 }
 
+.shrink {
+  flex: 2 2;
+}
+
+hstack[shrink] > * {
+  flex: 2 2;
+}
+
 hstack[spacing="xl"] > * {
   margin-right: var(--spacing-xl);
 }
