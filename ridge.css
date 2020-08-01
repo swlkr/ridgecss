@@ -1188,6 +1188,9 @@ a.hover\:no-underline {
   .md, .lg {
     display: none;
   }
+
+  .sm\:w-100 { width: 100%; }
+  .sm\:w-m { width: var(--spacing-m); }
 }
 
 @media screen and (min-width: 508px) and (max-width: 959px) {
@@ -1198,6 +1201,9 @@ a.hover\:no-underline {
   .md {
     display: inherit;
   }
+
+  .md\:w-3xl { width: var(--spacing-3xl); }
+  .md\:w-m { width: var(--spacing-m); }
 }
 
 @media screen and (min-width: 960px) {
@@ -1208,4 +1214,6 @@ a.hover\:no-underline {
   .lg {
     display: inherit;
   }
+
+  .lg\:w-3xl { width: var(--spacing-3xl); }
 }
