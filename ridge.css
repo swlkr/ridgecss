@@ -91,46 +91,6 @@ hstack[align-x="right"] {
   justify-content: flex-end;
 }
 
-@media (max-width: 507px) {
-  hstack[responsive] {
-    flex: 1 1;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  hstack[responsive]>* {
-    margin-right: 0;
-  }
-
-  hstack[responsive][spacing="xxs"]>* {
-    margin-bottom: var(--spacing-2xs);
-  }
-
-  hstack[responsive][spacing="xs"]>* {
-    margin-bottom: var(--spacing-xs);
-  }
-
-  hstack[responsive][spacing="s"]>* {
-    margin-bottom: var(--spacing-s);
-  }
-
-  hstack[responsive][spacing="m"]>* {
-    margin-bottom: var(--spacing-m);
-  }
-
-  hstack[responsive][spacing="l"]>* {
-    margin-bottom: var(--spacing-l);
-  }
-
-  hstack[responsive][spacing="xl"]>* {
-    margin-bottom: var(--spacing-xl);
-  }
-
-  hstack[responsive][spacing]>:last-child {
-    margin-bottom: 0;
-  }
-}
-
 vstack {
   display: flex;
   align-self: stretch;
@@ -217,20 +177,7 @@ body {
   background: var(--background);
 }
 
-@media(max-width: 1023px) {
-  body {
-    width: 100%;
-    padding: var(--spacing-s);
-  }
-}
-
-@media(max-width: 507px) {
-  body {
-    width: 100%;
-  }
-}
-
-button, input, textarea {
+button, input, textarea, a {
   transition: background-color var(--animation-duration) linear,
               border-color var(--animation-duration) linear,
               color var(--animation-duration) linear,
@@ -241,12 +188,6 @@ button, input, textarea {
 h1 {
   font-size: 2.2em;
   margin: 0;
-}
-
-@media (max-width: 507px) {
-  h1 {
-    font-size: 1.8em;
-  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -287,7 +228,6 @@ address {
 mark {
   background-color: var(--highlight);
   border-radius: 2px;
-  padding: 0px 2px 0px 2px;
   color: #000000;
 }
 
@@ -342,7 +282,6 @@ textarea {
 textarea {
   margin-right: 0;
   width: 100%;
-  box-sizing: border-box;
   resize: vertical;
 }
 
@@ -369,7 +308,6 @@ input[type='button'] {
 
 button:hover,
 input[type='button']:hover {
-  color: var(--bright);
   background: var(--button-hover);
 }
 
@@ -655,23 +593,6 @@ section > :last-child {
   margin-right: 0;
 }
 
-@media(max-width: 507px) {
-  section, aside {
-    flex: none;
-    width: 100%;
-    margin-left: 0;
-  }
-
-  section > aside {
-    margin-right: 0;
-    margin-bottom: var(--spacing-s);
-  }
-
-  section > aside:last-child {
-    margin-bottom: 0;
-  }
-}
-
 ul, ol {
   margin: 0;
 }
@@ -692,6 +613,80 @@ dd {
   text-align: left;
   color: var(--main);
   margin: 0;
+}
+
+@media(max-width: 1023px) {
+  body {
+    width: 100%;
+  }
+}
+
+@media(max-width: 507px) {
+  body {
+    width: 100%;
+    padding: 0;
+  }
+
+  aside {
+    flex: none;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  section > aside {
+    margin-right: 0;
+    margin-bottom: var(--spacing-s);
+  }
+
+  section > aside:last-child
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 507px) {
+  hstack[responsive] {
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  hstack[responsive]>* {
+    margin-right: 0;
+  }
+
+  hstack[responsive][spacing="2xs"]>* {
+    margin-bottom: var(--spacing-2xs);
+  }
+
+  hstack[responsive][spacing="xs"]>* {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  hstack[responsive][spacing="s"]>* {
+    margin-bottom: var(--spacing-s);
+  }
+
+  hstack[responsive][spacing="m"]>* {
+    margin-bottom: var(--spacing-m);
+  }
+
+  hstack[responsive][spacing="l"]>* {
+    margin-bottom: var(--spacing-l);
+  }
+
+  hstack[responsive][spacing="xl"]>* {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  hstack[responsive][spacing]>:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 507px) {
+  h1 {
+    font-size: 1.8em;
+  }
 }
 
 /*****************
