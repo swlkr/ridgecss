@@ -50,7 +50,7 @@ hstack[spacing="xs"] > * {
   margin-right: var(--spacing-xs);
 }
 
-hstack[spacing="xxs"] > * {
+hstack[spacing="2xs"] > * {
   margin-right: var(--spacing-2xs);
 }
 
@@ -149,7 +149,7 @@ vstack[spacing="xs"] > * {
   margin-bottom: var(--spacing-xs);
 }
 
-vstack[spacing="xxs"] > * {
+vstack[spacing="2xs"] > * {
   margin-bottom: var(--spacing-2xs);
 }
 
