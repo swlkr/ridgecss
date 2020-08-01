@@ -460,7 +460,7 @@ a {
   border-width: inherit;
 }
 
-code, samp, time {
+code, samp {
   background:  var(--background-alt);
   color: var(--code);
   padding: 2.5px 5px;
