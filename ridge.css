@@ -1101,6 +1101,7 @@ dd {
 .highlight { color: var(--highlight); }
 
 .nowrap { white-space: nowrap; }
+.pre-wrap { white-space: pre-wrap; }
 .overflow-x { overflow-x: auto; }
 .overflow-y { overflow-y: auto; }
 
@@ -1146,13 +1147,38 @@ a.hover\:no-underline {
   text-decoration: none;
 }
 
+.tc { text-align: center; }
 .tl { text-align: left; }
 .tr { text-align: right; }
-.tc { text-align: center; }
+.tj { text-align: justify; }
+.ti { text-align: inherit; }
 
-/*
-   RESPONSIVE
-*/
+.f-1 { font-size: 3rem; }
+.f-2 { font-size: 2.25rem; }
+.f-3 { font-size: 1.5rem; }
+.f-4 { font-size: 1.25rem; }
+.f-5 { font-size: 1rem; }
+.f-6 { font-size: .875rem; }
+
+.o-0 { opacity: 0; }
+.o-25 { opacity: 0.25; }
+.o-50 { opacity: 0.5; }
+.o-75 { opacity: 0.75; }
+.o-1 { opacity: 1; }
+
+.z-0 { z-index: 0; }
+.z-1 { z-index: 1; }
+.z-2 { z-index: 2; }
+.z-3 { z-index: 3; }
+.z-4 { z-index: 4; }
+
+.shadow-1 { box-shadow: var(--shadow); }
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 @media screen and (max-width: 507px) {
   .sm {
