@@ -28,7 +28,6 @@ hstack {
   align-self: stretch;
   align-items: center;
   flex-direction: row;
-  flex: 1 1 auto;
 }
 
 .shrink {
@@ -94,7 +93,6 @@ hstack[align-x="right"] {
 vstack {
   display: flex;
   align-self: stretch;
-  flex: 1 1 auto;
   flex-direction: column;
 }
 
@@ -170,8 +168,6 @@ body {
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.4;
-
-  text-rendering: optimizeLegibility;
 
   color: var(--main);
   background: var(--background);
@@ -645,7 +641,6 @@ dd {
 
 @media (max-width: 507px) {
   hstack[responsive] {
-    flex: 1 1 auto;
     flex-direction: column;
     align-items: stretch;
   }
