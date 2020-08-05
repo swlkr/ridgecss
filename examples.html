@@ -422,7 +422,7 @@
           <div style="height: 400px" x-show="preview" x-ref="demo">
 <vstack spacing=xs stretch x-data="{ active: 'dashboard', menu: false, profile: false }">
   <hstack spacing=s class="bb b--background-alt bw1 md lg">
-    <hstack spacing=xs class="ph-s">
+    <hstack spacing=xs class="px-s">
       <svg class="bi bi-exclude" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v9A1.5 1.5 0 0 0 1.5 12H4v2.5A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4H12V1.5A1.5 1.5 0 0 0 10.5 0h-9zM12 4H5.5A1.5 1.5 0 0 0 4 5.5V12h6.5a1.5 1.5 0 0 0 1.5-1.5V4z"/>
       </svg>
@@ -445,7 +445,7 @@
 
   <vstack stretch>
     <hstack class="sm">
-      <hstack spacing=xs class="ph-s">
+      <hstack spacing=xs class="px-s">
         <svg class="bi bi-exclude" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v9A1.5 1.5 0 0 0 1.5 12H4v2.5A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4H12V1.5A1.5 1.5 0 0 0 10.5 0h-9zM12 4H5.5A1.5 1.5 0 0 0 4 5.5V12h6.5a1.5 1.5 0 0 0 1.5-1.5V4z"/>
         </svg>
@@ -475,13 +475,13 @@
   <div class="relative">
     <aside x-show="profile" class="absolute right-0 br-xs w-xl">
       <vstack>
-        <div class="bb b--border pv-xs ph-s">
+        <div class="bb b--border py-xs px-s">
           <a href>Profile</a>
         </div>
-        <div class="bb b--border pv-xs ph-s">
+        <div class="bb b--border py-xs px-s">
           <a href>Settings</a>
         </div>
-        <div class="pv-xs ph-s">
+        <div class="py-xs px-s">
           <a href>Log out</a>
         </div>
       </vstack>
@@ -514,16 +514,16 @@
           <div style="height: 600px" x-show="preview" x-ref="demo">
 <hstack x-data="{ active: 'Dashboard', menu: false }" class="h-100 relative" >
   <vstack stretch spacing=xs class="bg-inverse inverse pa-s w-third md lg">
-    <hstack spacing=xs class="ph-s">
+    <hstack spacing=xs class="px-s">
       <svg class="bi bi-exclude" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v9A1.5 1.5 0 0 0 1.5 12H4v2.5A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4H12V1.5A1.5 1.5 0 0 0 10.5 0h-9zM12 4H5.5A1.5 1.5 0 0 0 4 5.5V12h6.5a1.5 1.5 0 0 0 1.5-1.5V4z"/>
       </svg>
       <h2 class="inverse">logo</h2>
     </hstack>
-    <a href @click.prevent="active = 'Dashboard'" class="pv-xs ph-s br-xs" :class="{ 'bg-link background-alt': active === 'Dashboard' }">Dashboard</a>
-    <a href @click.prevent="active = 'Team'" class="pv-xs ph-s br-xs" :class="{ 'bg-link background-alt': active === 'Team' }">Team</a>
-    <a href @click.prevent="active = 'Tags'" class="pv-xs ph-s br-xs" :class="{ 'bg-link background-alt': active === 'Tags' }">Tags</a>
-    <a href @click.prevent="active = 'Calendar'" class="pv-xs ph-s br-xs" :class="{ 'bg-link background-alt': active === 'Calendar' }">Calendar</a>
+    <a href @click.prevent="active = 'Dashboard'" class="py-xs px-s br-xs" :class="{ 'bg-link background-alt': active === 'Dashboard' }">Dashboard</a>
+    <a href @click.prevent="active = 'Team'" class="py-xs px-s br-xs" :class="{ 'bg-link background-alt': active === 'Team' }">Team</a>
+    <a href @click.prevent="active = 'Tags'" class="py-xs px-s br-xs" :class="{ 'bg-link background-alt': active === 'Tags' }">Tags</a>
+    <a href @click.prevent="active = 'Calendar'" class="py-xs px-s br-xs" :class="{ 'bg-link background-alt': active === 'Calendar' }">Calendar</a>
     <spacer></spacer>
     <hstack spacing=s>
       <img src="profile.png" class="w-m br-100" />
@@ -535,7 +535,7 @@
   </vstack>
 
   <vstack x-show="!menu" stretch class="w-100 bg-background-alt b--background pa-s">
-    <vstack spacing=xs>
+    <vstack stretch spacing=xs>
       <h2 x-text="active">Dashboard</h2>
       <vstack class="br-s b--dashed b--background bw-2xs" stretch align-x="center" align-y="center">Your dashboard goes here</vstack>
     </vstack>
