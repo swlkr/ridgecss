@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"
-      dir="ltr"
-      x-data="{ themes: false, theme: '', dark: window.matchMedia('(prefers-color-scheme: dark)').matches }"
-      x-init="window.matchMedia('(prefers-color-scheme: dark)').addListener(e => dark = e.matches);">
+<html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="ridge.css">
     <meta property="og:description" content="A maximalist css framework for making web apps fast">
@@ -12,320 +9,147 @@
     <meta property="og:url" content="https://ridgecss.com">
     <meta name="twitter:card" content="summary_large_image">
     <title>ridge.css</title>
-    <noscript>
-      <link rel="stylesheet" href="ridge-light.css">
-    </noscript>
-    <template x-if="!dark && theme === ''">
-      <link rel="stylesheet" href="ridge-light.css">
-    </template>
-    <template x-if="dark && theme === ''">
-      <link rel="stylesheet" href="ridge-dark.css">
-    </template>
-    <template x-if="theme === 'watermelon' && dark">
-      <link rel="stylesheet" href="themes/ridge-watermelon-dark.css">
-    </template>
-    <template x-if="theme === 'watermelon' && !dark">
-      <link rel="stylesheet" href="themes/ridge-watermelon-light.css">
-    </template>
-    <template x-if="theme === 'valentines' && dark">
-      <link rel="stylesheet" href="themes/ridge-valentines-dark.css">
-    </template>
-    <template x-if="theme === 'valentines' && !dark">
-      <link rel="stylesheet" href="themes/ridge-valentines-light.css">
-    </template>
     <link rel="stylesheet" href="ridge.css" />
+    <link rel="stylesheet" href="atom-one-light.css" />
     <script src="alpine.js" defer></script>
   </head>
-  <body>
-    <main>
-      <vstack spacing="m">
-        <hstack>
-          <a class="hover:no-underline" href="index.html">
-            <hstack>
-              <img class="w-l" src="logo.png" alt="green blue gradient mountain icon" />
-              <span class="bright">ridge.css</span>
-            </hstack>
-          </a>
-          <spacer></spacer>
-          <hstack spacing="s">
-            <a x-show="!dark" href class="main mt-2xs code-button" @click.prevent="dark = true">
-              <svg class="bi bi-moon" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M14.53 10.53a7 7 0 0 1-9.058-9.058A7.003 7.003 0 0 0 8 15a7.002 7.002 0 0 0 6.53-4.47z"/>
-              </svg>
-            </a>
-            <a x-show="dark" href class="highlight mt-2xs code-button" @click.prevent="dark = false">
-              <svg class="bi bi-brightness-high" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-              </svg>
-            </a>
-            <a class="md lg" href="examples.html">Examples</a>
-            <div class="md lg relative">
-              <a href="themes.html" @click.away="themes = false" @click.prevent="themes = !themes">Themes</a>
-              <aside x-show="themes" x-cloak class="mt4 absolute w5 ba br2">
-                <vstack x-html="$refs.themes.innerHTML">
-                </vstack>
-              </aside>
-            </div>
-            <a class="md lg" href="https://github.com/swlkr/ridgecss">Github</a>
+  <body class="pa3 mw8 ml-auto mr-auto">
+    <vstack>
+      <hstack>
+        <a href="index.html">
+          <hstack>
+            <img class="w3" src="logo.png" alt="green blue gradient mountain icon" />
+            <text>ridge.css</text>
           </hstack>
+        </a>
+        <spacer></spacer>
+        <hstack spacing=s>
+          <a class="blue underline" href="examples.html">Examples</a>
+          <a class="blue underline" href="themes.html">Themes</a>
+          <a class="blue underline" href="https://github.com/swlkr/ridgecss">Github</a>
         </hstack>
+      </hstack>
 
-        <vstack spacing=l>
-          <vstack align-x="center" spacing=s>
-            <h1 class="md lg tc">
-              Make web apps quickly without writing css
-            </h1>
-            <h1 class="sm">
-              Make web apps quickly without writing css
-            </h1>
-            <p>
-              <a href="https://github.com/dbohdan/classless-css">classless css</a> mixed with a dash of <a href="https://tachyons.io">atomic css</a>, <a href="https://github.com/almonk/pylon">swift ui inspired</a> elements and <a href="https://github.com/alpinejs/alpine">alpine.js</a> markup
-            </p>
-          </vstack>
+      <div>
+        <vstack spacing=xs class=mv5>
+          <text class="f1-ns f3 tc-ns">
+            Keep your css classy
+          </text>
+          <text class="f5 tc-ns">
+            <a class="blue underline" href="https://github.com/tachyons-css/tachyons">atomic css</a>
+            / <a class="blue underline" href="https://github.com/almonk/pylon">pylon-ish css</a>
+            / <a class="blue underline" href="https://github.com/alpinejs/alpine">alpine.js</a>
+          </text>
+        </vstack>
 
-          <vstack>
-            <h2>Typography</h2>
+        <div>
+          <div class="f3 mb2">Stacks</div>
 
-            <h1>h1</h1>
-            <h2>h2</h2>
-            <h3>h3</h3>
-            <h4>h4</h4>
-            <h5>h5</h5>
-            <h6>h6</h6>
+          <div class="code-example">
+            <div class="code-source ba br--top b--light-gray br3 bg-white pa3 overflow-scroll">
+<hstack spacing=s>
+  <input class="br3 ph3 pv2 ba b--light-gray outline-0 focus:b--blue" type="text" placeholder="Your name" />
+  <input class="br3 ph3 pv2 ba b--light-gray outline-0 focus:b--blue" type="email" placeholder="Your email" />
+  <button class="bg-blue white ph3 pv2 bn br3 shadow-4 pointer dim">Submit</button>
+</hstack>
+            </div>
 
-            <p>
-              This is a short bit of text in a paragraph tag
-              <br />
-              <strong>strong</strong>
-              <b>b</b>
-              <em>em</em>
-              <i>italic</i>
-              <u>underline</u>
-              <s>strikethrough</s>
-              <mark>mark</mark>
-              <var>l x w x h</var>
-              <kbd>Cmd</kbd>+<kbd>P</kbd>
-            </p>
-
-            <blockquote>
-              Climb the mountains and get their good tidings
-              <footer>
-                <cite>John Muir</cite>
-              </footer>
-            </blockquote>
-          </vstack>
-
-          <vstack spacing=s>
-            <h2>Lists</h2>
-            <ul>
-              <li>Unordered list</li>
-              <li><a href="#">Unordered links</a></li>
-            </ul>
-
-            <ol>
-              <li>Ordered list</li>
-              <li><a href="#">Ordered links</a></li>
-            </ol>
-
-            <dl>
-              <vstack>
-                <dt>Description title</dt>
-                <dd>Description</dd>
-              </vstack>
-            </dl>
-          </vstack>
-
-          <vstack>
-            <h2>Buttons</h2>
-            <hstack responsive spacing=s>
-              <input type="submit" value="Submit">
-              <button>Button</button>
-              <a href>
-                <button>Link Button</button>
-              </a>
-              <button disabled="">Disabled</button>
-            </hstack>
-          </vstack>
-
-          <vstack>
-            <h2>Forms</h2>
-            <label for="text">Text</label>
-            <input type="text" name="text" id="text" placeholder="text" />
-
-            <label for="textarea">Text Area</label>
-            <textarea rows="4" cols="27" id="textarea" placeholder="textarea"></textarea>
-
-            <label for="radio-1">
-              <input type="radio" id="radio-1" name="radio" value="true" />
-              Radio 1
-            </label>
-
-            <label for="radio-2">
-              <input type="radio" id="radio-2" name="radio" value="false" />
-              Radio 2
-            </label>
-
-            <label for="checkbox">
-              <input type="checkbox" name="checkbox" id="checkbox" />
-              Checkbox
-            </label>
-
-            <label for="range">Range</label>
-            <input type="range" name="range" id="range" />
-
-            <label for="drop">Dropdown</label>
-            <select name="drop" id="drop">
-              <option value="drop1">One</option>
-              <option value="drop2">Two</option>
-              <option value="drop3">Three</option>
-            </select>
-          </vstack>
-
-          <vstack class="overflow-x">
-            <h2>Tables</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>One</th>
-                  <th>Two</th>
-                  <th>Three</th>
-                  <th>Four</th>
-                  <th>Five</th>
-                  <th>Six</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>One</td>
-                  <td>Two</td>
-                  <td>Three</td>
-                  <td>Four</td>
-                  <td>Five</td>
-                  <td>Six</td>
-                </tr>
-                <tr>
-                  <td>Seven</td>
-                  <td>Eight</td>
-                  <td>Nine</td>
-                  <td>Ten</td>
-                  <td>Eleven</td>
-                  <td>Twelve</td>
-                </tr>
-                <tr>
-                  <td>Thirteen</td>
-                  <td>Fourteen</td>
-                  <td>Fifteen</td>
-                  <td>Sixteen</td>
-                  <td>Seventeen</td>
-                  <td>Eighteen</td>
-                </tr>
-              </tbody>
-            </table>
-          </vstack>
-
-          <vstack spacing="s">
-            <h2>Cards</h2>
-            <hstack responsive spacing=s>
-              <aside stretch>
-                <vstack class="pa-m">
-                  <h3>I'm a card!</h3>
-                </vstack>
-              </aside>
-
-              <aside stretch>
-                <vstack class="pa-m">
-                  <h3>I'm a card!</h3>
-                </vstack>
-              </aside>
-
-              <aside stretch>
-                <vstack class="pa-m">
-                  <h3>I'm a card!</h3>
-                </vstack>
-              </aside>
-            </hstack>
-
-            <aside>
-              <vstack stretch class="pa-m">
-                <h3>I'm a card!</h3>
-              </vstack>
-            </aside>
-          </vstack>
-
-          <vstack>
-            <h2>Details</h2>
-            <details>
-              <summary>The deets</summary>
-              Something small enough to escape casual notice
-            </details>
-          </vstack>
-
-          <vstack>
-            <h2>Code blocks</h2>
-            <pre>
-              <code>
-  Code blocks look like this
+            <pre class="br3 br--bottom overflow-hidden" style="margin-top: -18px; margin-top: -18px; margin-bottom: 0; height: 175px;">
+              <code class="html">
               </code>
             </pre>
-          </vstack>
+          </div>
 
-          <vstack>
-            <h2>Footer</h2>
-            <footer>This is the footer</footer>
-          </vstack>
+          <div class="code-example">
+            <div class="code-source ba br--top b--light-gray br3 bg-white pa3 overflow-scroll">
+<vstack spacing=s>
+  <input class="br3 ph3 pv2 ba b--light-gray outline-0 focus:b--blue" type="text" placeholder="Your name" />
+  <input class="br3 ph3 pv2 ba b--light-gray outline-0 focus:b--blue" type="email" placeholder="Your email" />
+  <button class="bg-blue white ph3 pv2 bn br3 shadow-4 pointer dim">Submit</button>
+</vstack>
+            </div>
 
-        </vstack>
+            <pre class="br3 br--bottom overflow-hidden" style="margin-top: -18px; margin-top: -18px; margin-bottom: 0; height: 175px;">
+              <code class="html">
+              </code>
+            </pre>
+          </div>
 
-        <spacer></spacer>
-        <vstack  x-show="themes" x-cloak class="sm fixed fill bg-background-alt" x-html="$refs.themes.innerHTML">
-        </vstack>
-        <div style="height: 50px; width: 100%;" class="sm"></div>
-        <hstack class="sm fixed left-0 right-0 bottom-0 bt b--border bg-background-alt" style="z-index: 2">
-          <a stretch href="index.html" class="pa-s">
-            <vstack align-x="center">
-              <svg class="bi bi-house-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-              </svg>
-              Home
-            </vstack>
-          </a>
+          <div class="code-example">
+            <div class="ba br--top b--light-gray br3 bg-white pa3 overflow-scroll">
+              <div class="code-source ba br3 b--blue h4">
+  <vstack stretch align-x=center align-y=center>
+    Hello world.
+  </vstack>
+              </div>
+            </div>
 
-          <a stretch href="examples.html" class="pa-s main">
-            <vstack align-x="center">
-              <svg class="bi bi-grid-1x2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M6 1H1v14h5V1zm9 0h-5v5h5V1zm0 9h-5v5h5v-5zM0 1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm9 0a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1V1zm1 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1h-5z"/>
-              </svg>
-              <span>Examples</span>
-            </vstack>
-          </a>
+            <pre class="br3 br--bottom overflow-hidden" style="margin-top: -18px; margin-top: -18px; margin-bottom: 0; height: 175px;">
+              <code class="html">
+              </code>
+            </pre>
+          </div>
+        </div>
 
-          <a stretch href="themes.html" class="pa-s main" @click.prevent="themes = !themes">
-            <vstack align-x="center">
-              <svg class="bi bi-layers-half" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M3.188 8L.264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l-4.578 2.441a.5.5 0 0 1-.47 0L3.188 8z"/>
-                <path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4zM1.563 6L8 9.433 14.438 6 8 2.567 1.562 6z"/>
-              </svg>
-              <span>Themes</span>
-            </vstack>
-          </a>
+        <div>
+          <div class="f3 mb2">Lists</div>
 
-          <a stretch href="https://github.com/swlkr/ridgecss" class="pa-s main">
-            <vstack align-x="center">
-              <svg class="bi bi-code" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.854 4.146a.5.5 0 0 1 0 .708L2.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm4.292 0a.5.5 0 0 0 0 .708L13.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
-              </svg>
-              Github
-            </vstack>
-          </a>
-        </hstack>
+          <div class="code-example">
+            <div class="code-source ba br--top b--light-gray br3 bg-white pa3 overflow-scroll">
+  <list spacing=xs>
+    <div>Red</div>
+    <div>Green</div>
+    <div>Blue</div>
+  </list>
+            </div>
+
+            <pre class="br3 br--bottom overflow-hidden" style="margin-top: -18px; margin-top: -18px; margin-bottom: 0; height: 175px;">
+              <code class="html">
+              </code>
+            </pre>
+          </div>
+
+
+          <div class="code-example">
+            <div class="code-source ba br--top b--light-gray br3 bg-white pa3 overflow-scroll">
+  <list spacing=s>
+    <hstack spacing=xs>
+      <input type="checkbox" />
+      <label>Do laundry</label>
+      <spacer></spacer>
+      <div>Due today</div>
+    </hstack>
+    <hstack spacing=xs>
+      <input type="checkbox" />
+      <label>Buy milk</label>
+    </hstack>
+  </list>
+            </div>
+
+            <pre class="br3 br--bottom overflow-hidden" style="margin-top: -18px; margin-top: -18px; margin-bottom: 0;">
+              <code class="html">
+              </code>
+            </pre>
+          </div>
+        </div>
       </vstack>
-    </main>
+    </vstack>
+    <div class="h3" />
 
-    <template x-ref="themes">
-      <a href @click.prevent="theme = ''; themes = false;" class="w-100 hover:bg-link hover:bright pa-xs">Default</a>
-      <a href @click.prevent="theme = 'watermelon'; themes = false;" class="w-100 hover:bg-link hover:bright pa-xs">Watermelon</a>
-      <a href @click.prevent="theme = 'valentines'; themes = false;" class="w-100 hover:bg-link hover:bright pa-xs">Valentines</a>
-    </template>
+    <script src="highlight.pack.js"></script>
+    <script>
+      document.querySelectorAll('.code-example').forEach(example => {
+        var code = example.querySelector(':scope .code-source');
+        var codeEl = example.querySelector(':scope pre > code');
+
+        codeEl.innerText = code.innerHTML;
+      });
+
+      setTimeout(function() {
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        })
+      }, 0);
+    </script>
   </body>
 </html>
